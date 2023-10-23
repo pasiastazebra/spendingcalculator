@@ -16,6 +16,10 @@ closeButton.addEventListener('click', () => {
 
 //* adding new entries
 
+const titleInput = document.getElementById('titleField');
+const expanseInput = document.getElementById('expanseField');
+const addButton = document.getElementById('formAddButton');
+
 const entries = [
   {
     title: 'First entry',
@@ -27,7 +31,15 @@ const entries = [
   }
 ];
 
-const addNewEntry = (title, ammount) => {
+addButton.addEventListener('click', () => {
+  event.preventDefault(); //!bugged style, have to fix it
+  entries.push({
+    title: titleInput.value,
+    ammount: expanseInput.value
+  });
+});
+
+const renderEntry = (title, ammount) => {
   const entryDiv = document.createElement('div');
   entryDiv.classList.add('modal-content-entry');
 
@@ -51,10 +63,8 @@ const renderModalContent = () => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(addNewEntry(entries[i].title, entries[i].ammount));
+    modalContent.appendChild(renderEntry(entries[i].title, entries[i].ammount));
   }
 }
 
-//run renderModalContent on showButton click
-//!Need to fix multiple entries rendering
 showButton.addEventListener('click', renderModalContent);
