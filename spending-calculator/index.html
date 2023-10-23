@@ -2,12 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favico.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Spending calculator</title>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- Dialog -->
+    <dialog class="modal" id="expansesModal">
+      <div class="modal-top">
+        <h1 class="modal-top-title">All expanses</h1>  
+        <button class="modal-top-button" id="closeModal">X</button>
+      </div>
+      <div class="modal-content">
+        <div class="modal-content-entry">
+          <h2 class="modal-content-entry-title">Placeholder 1</h2>
+          <p class="model-content-entry-ammount">123,45</p>
+        </div>
+        <div class="modal-content-entry">
+          <h2 class="modal-content-entry-title">Placeholder 2</h2>
+          <p class="model-content-entry-ammount">678,90</p>
+        </div>
+      </div>
+    </dialog>
+    <!-- App -->
+    <div class="app-window">
+      <h1 class="app-title">Spending calculator</h1>
+      <div class="app-content">
+        <div class="app-counter">
+          <p class="app-text inline">You spent:</p> 
+          <p class="app-text inline" id="">000,00</p>
+        </div>
+        <button class="app-button" id="showModal">View expanses</button>
+        <div class="app-adding-menu">
+          <button class="app-button" id="addNewExpanse">Add new expanse</button>
+          <form class="app-adding-menu-hidden">
+            <input type="text" class="app-input" id="titleField" placeholder="Title">
+            <input type="number" class="app-input" id="expanseField" placeholder="Expanse">
+            <button class="app-button" id="formAddButton">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
