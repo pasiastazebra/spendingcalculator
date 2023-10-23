@@ -46,6 +46,10 @@ const addNewEntry = (title, ammount) => {
 const renderModalContent = () => {
   const modalContent = document.querySelector('.modal-content');
   
+  while (modalContent.firstChild) {
+    modalContent.removeChild(modalContent.firstChild);
+  }
+
   for (let i = 0; i < entries.length; i++) {
     modalContent.appendChild(addNewEntry(entries[i].title, entries[i].ammount));
   }
