@@ -51,7 +51,7 @@ const renderEntry = (title, ammount) => {
 }
 
 const renderModalContent = () => {
-  const modalContent = document.querySelector('.modal-content');
+  const modalContent = document.querySelector('.modal-content-table');
   
   while (modalContent.firstChild) {
     modalContent.removeChild(modalContent.firstChild);
