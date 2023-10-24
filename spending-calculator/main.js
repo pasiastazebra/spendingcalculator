@@ -38,7 +38,7 @@ const renderEntry = (title, ammount) => {
   const entryDiv = document.createElement('div');
   entryDiv.classList.add('modal-content-entry');
 
-  const entryTitle = document.createElement('h2');
+  const entryTitle = document.createElement('p');
   entryTitle.innerText = title;
 
   const entryAmmount = document.createElement('p');
