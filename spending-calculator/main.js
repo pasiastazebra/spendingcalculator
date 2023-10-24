@@ -5,6 +5,7 @@ import '/src/style.scss';
 const modal = document.querySelector('.modal');
 const showButton = document.getElementById('showModal');
 const closeButton = document.getElementById('closeModal');
+const clearButton = document.getElementById('clearModal');
 
 showButton.addEventListener('click', () => { 
   modal.showModal();
@@ -24,8 +25,11 @@ const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
 
 addButton.addEventListener('click', () => {
+  const lastEntry = entries[entries.length - 1];
+
   event.preventDefault(); //!bugged style, have to fix it
   entries.push({
+    ID: lastEntry ? lastEntry.ID + 1 : 1, //!not working right now
     title: titleInput.value,
     ammount: expanseInput.value
   });
@@ -34,9 +38,22 @@ addButton.addEventListener('click', () => {
   renderModalContent();
 });
 
-const renderEntry = (title, ammount) => {
+clearButton.addEventListener('click', () => {
+  localStorage.clear();
+  entries.length = 0;
+  renderModalContent();
+  modal.close();
+  alert('All entries cleared!');
+  titleInput.value = '';
+  expanseInput.value = '';
+});
+
+const renderEntry = (ID, title, ammount) => {
   const entryDiv = document.createElement('div');
   entryDiv.classList.add('modal-content-entry');
+
+  const entryID = document.createElement('p');
+  entryID.innerText = ID;
 
   const entryTitle = document.createElement('p');
   entryTitle.innerText = title;
@@ -44,6 +61,7 @@ const renderEntry = (title, ammount) => {
   const entryAmmount = document.createElement('p');
   entryAmmount.innerText = ammount;
 
+  entryDiv.appendChild(entryID);
   entryDiv.appendChild(entryTitle);
   entryDiv.appendChild(entryAmmount);
 
