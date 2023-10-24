@@ -20,16 +20,8 @@ const titleInput = document.getElementById('titleField');
 const expanseInput = document.getElementById('expanseField');
 const addButton = document.getElementById('formAddButton');
 
-const entries = [
-  {
-    title: 'First entry',
-    ammount: '100,00'
-  },
-  {
-    title: 'Second entry',
-    ammount: '200,00'
-  }
-];
+const entries = JSON.parse(localStorage.getItem('entries')) || [];
+
 
 addButton.addEventListener('click', () => {
   event.preventDefault(); //!bugged style, have to fix it
@@ -37,6 +29,9 @@ addButton.addEventListener('click', () => {
     title: titleInput.value,
     ammount: expanseInput.value
   });
+
+  localStorage.setItem('entries', JSON.stringify(entries));
+  renderModalContent();
 });
 
 const renderEntry = (title, ammount) => {
@@ -66,5 +61,5 @@ const renderModalContent = () => {
     modalContent.appendChild(renderEntry(entries[i].title, entries[i].ammount));
   }
 }
-
-showButton.addEventListener('click', renderModalContent);
+renderModalContent();
+//showButton.addEventListener('click', renderModalContent);
