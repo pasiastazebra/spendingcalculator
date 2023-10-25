@@ -30,7 +30,7 @@ addButton.addEventListener('click', () => {
   event.preventDefault(); //!bugged style, have to fix it
 
   entries.push({
-    ID: lastEntry ? lastEntry.ID + 1 : 1, //!not working right now
+    ID: lastEntry ? lastEntry.ID + 1 : 1,
     title: titleInput.value,
     ammount: expanseInput.value
   });
@@ -52,6 +52,7 @@ clearButton.addEventListener('click', () => {
 const renderEntry = (ID, title, ammount) => {
   const entryDiv = document.createElement('div');
   entryDiv.classList.add('modal-content-entry');
+  entryDiv.id = ID;
 
   const entryID = document.createElement('p');
   entryID.innerText = ID;
@@ -62,9 +63,14 @@ const renderEntry = (ID, title, ammount) => {
   const entryAmmount = document.createElement('p');
   entryAmmount.innerText = ammount;
 
+  const entryDeleteButton = document.createElement('button');
+  entryDeleteButton.innerText = 'Delete';
+  entryDeleteButton.classList.add('delete-button');
+
   entryDiv.appendChild(entryID);
   entryDiv.appendChild(entryTitle);
   entryDiv.appendChild(entryAmmount);
+  entryDiv.appendChild(entryDeleteButton);
 
   return entryDiv;
 }
@@ -81,4 +87,3 @@ const renderModalContent = () => {
   }
 }
 renderModalContent();
-//showButton.addEventListener('click', renderModalContent);
