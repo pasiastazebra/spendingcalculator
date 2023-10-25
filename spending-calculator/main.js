@@ -27,7 +27,7 @@ const entries = JSON.parse(localStorage.getItem('entries')) || [];
 addButton.addEventListener('click', () => {
   const lastEntry = entries[entries.length - 1];
 
-  event.preventDefault(); //!bugged style, have to fix it
+  event.preventDefault(); 
 
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1,
@@ -67,6 +67,10 @@ const renderEntry = (ID, title, ammount) => {
   entryDeleteButton.innerText = 'Delete';
   entryDeleteButton.classList.add('delete-button');
 
+  entryDeleteButton.addEventListener('click', () => {
+    deleteEntry(entryID.innerText);
+  });
+
   entryDiv.appendChild(entryID);
   entryDiv.appendChild(entryTitle);
   entryDiv.appendChild(entryAmmount);
@@ -86,4 +90,13 @@ const renderModalContent = () => {
     modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, entries[i].ammount));
   }
 }
+
+const deleteEntry = (ID) => {
+  const entryIndex = entries.findIndex(entry => entry.ID === ID);
+  entries.splice(entryIndex, 1);
+  localStorage.setItem('entries', JSON.stringify(entries));
+  renderModalContent();
+  alert(`Entry ${ID} deleted`);
+}
+
 renderModalContent();
