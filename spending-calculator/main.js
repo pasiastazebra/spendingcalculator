@@ -28,6 +28,7 @@ addButton.addEventListener('click', () => {
   const lastEntry = entries[entries.length - 1];
 
   event.preventDefault(); //!bugged style, have to fix it
+
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1, //!not working right now
     title: titleInput.value,
@@ -76,7 +77,7 @@ const renderModalContent = () => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(renderEntry(entries[i].title, entries[i].ammount));
+    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, entries[i].ammount));
   }
 }
 renderModalContent();
