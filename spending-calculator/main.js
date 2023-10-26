@@ -12,6 +12,7 @@ const addButton = document.getElementById('formAddButton');
 const totalExpanses = document.getElementById('totalExpanses');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
+console.log(entries);
 
 //* opening & closing modal
 showButton.addEventListener('click', () => { 
@@ -47,8 +48,8 @@ clearButton.addEventListener('click', () => {
   renderExpanses();
   modal.close();
   alert('All entries cleared!');
-  titleInput.value = '';
-  expanseInput.value = '';
+  //titleInput.value = '';
+  //expanseInput.value = '';
 });
 
 const deleteEntry = (ID) => {
@@ -63,12 +64,12 @@ const deleteEntry = (ID) => {
 //* rendering total expanses
 
 const countExpanses = (array) => {
-  let sum = 0;
+  let sum = 0.00;
 
   console.log(array);
 
   array.forEach(element => {
-    sum += element.ammount;
+    sum += parseFloat(element.ammount);
   });
 
   return sum;
@@ -81,6 +82,9 @@ const renderExpanses = () => {
 //* rendering modal
 
 const renderEntry = (ID, title, ammount) => {
+  console.log(typeof ammount);
+  console.log(ammount);
+
   const entryDiv = document.createElement('div');
   entryDiv.classList.add('modal-content-entry');
   entryDiv.id = ID;
@@ -118,7 +122,7 @@ const renderModalContent = () => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, entries[i].ammount));
+    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseInt(entries[i].ammount)));
   }
 }
 
