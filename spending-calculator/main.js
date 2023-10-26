@@ -1,12 +1,18 @@
-import '/src/style.scss';
+import '/src/styles/style.scss';
 
-//* modal scripts 
+//* elements consts
 
 const modal = document.querySelector('.modal');
 const showButton = document.getElementById('showModal');
 const closeButton = document.getElementById('closeModal');
 const clearButton = document.getElementById('clearModal');
+const titleInput = document.getElementById('titleField');
+const expanseInput = document.getElementById('expanseField');
+const addButton = document.getElementById('formAddButton');
 
+const entries = JSON.parse(localStorage.getItem('entries')) || [];
+
+//* opening & closing modal
 showButton.addEventListener('click', () => { 
   modal.showModal();
 });
@@ -15,14 +21,7 @@ closeButton.addEventListener('click', () => {
   modal.close();
 });
 
-//* adding new entries
-
-const titleInput = document.getElementById('titleField');
-const expanseInput = document.getElementById('expanseField');
-const addButton = document.getElementById('formAddButton');
-
-const entries = JSON.parse(localStorage.getItem('entries')) || [];
-
+//* adding, clearing and deleting buttons
 
 addButton.addEventListener('click', () => {
   const lastEntry = entries[entries.length - 1];
@@ -48,6 +47,16 @@ clearButton.addEventListener('click', () => {
   titleInput.value = '';
   expanseInput.value = '';
 });
+
+const deleteEntry = (ID) => {
+  const entryIndex = entries.findIndex(entry => entry.ID === ID);
+  entries.splice(entryIndex, 1);
+  localStorage.setItem('entries', JSON.stringify(entries));
+  renderModalContent();
+  alert(`Entry ${ID} deleted`);
+}
+
+//* rendering modal
 
 const renderEntry = (ID, title, ammount) => {
   const entryDiv = document.createElement('div');
@@ -89,14 +98,6 @@ const renderModalContent = () => {
   for (let i = 0; i < entries.length; i++) {
     modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, entries[i].ammount));
   }
-}
-
-const deleteEntry = (ID) => {
-  const entryIndex = entries.findIndex(entry => entry.ID === ID);
-  entries.splice(entryIndex, 1);
-  localStorage.setItem('entries', JSON.stringify(entries));
-  renderModalContent();
-  alert(`Entry ${ID} deleted`);
 }
 
 renderModalContent();
