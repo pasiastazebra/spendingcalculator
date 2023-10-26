@@ -1,6 +1,10 @@
 //* variables 
-$bgcolor: #19A7CE;
+$bgcolor: #bcfcba;
 $windowcolor: #fafafa;
+
+$color1: hsl(199, 81%, 36%);
+$color2: hsl(199, 81%, 56%);
+$color3: hsl(199, 51%, 36%);
 
 * {
   //border: 1px;
@@ -36,12 +40,15 @@ html {
   }
 
   &-title {
-    background-color: #146C94;
+    background-color: $color1;
+    color: $windowcolor;
     border-radius: 15px 15px 0px 0px;
 
-    padding: 1vh;
+    padding: 1.5vh;
     font-size: 25px;
     text-align: center;
+
+    user-select: none;
   }
 
   &-counter {
@@ -56,9 +63,25 @@ html {
     justify-content: space-around;
 
     &-button {
+      transition: 500ms;
+
       width: 100%;
 
       margin: 1%;
+
+      border-style: none;
+      border-radius: 3px;
+
+      background-color: $color2;
+
+      font-size: 15px;
+      color: $windowcolor;
+
+      &:hover {
+        transition: 500ms;
+
+        background-color: $color3;
+      }
     }
 
     &-addingmenu-input {
