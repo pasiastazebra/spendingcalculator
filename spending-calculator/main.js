@@ -113,7 +113,7 @@ const renderModalContent = () => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseInt(entries[i].ammount)));
+    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount)));
   }
 }
 
