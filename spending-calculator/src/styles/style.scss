@@ -1,4 +1,46 @@
+//* variables 
+$bgcolor: #19A7CE;
+$windowcolor: #fafafa;
+
 * {
-  border: 1px;
-  border-style: solid;
+  //border: 1px;
+  //border-style: solid;
+
+  font-family: 'Manjari', sans-serif;
+}
+
+html {
+  background-color: $bgcolor;
+}
+
+.app{
+ &-window {
+    background-color: $windowcolor;
+    box-shadow: 5px 5px 15px #000000;
+    border-radius: 15px;
+
+    margin-top: 30vh;
+  }
+
+  &-title {
+    background-color: #146C94;
+    border-radius: 15px 15px 0px 0px;
+
+    padding: 1vh;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  &-counter {
+    text-align: center;
+
+    &-text {
+      display: inline;
+    }
+  }
+
+  &-button {
+    display: block;
+    justify-self: center;
+  }
 }
