@@ -9,6 +9,7 @@ const clearButton = document.getElementById('clearModal');
 const titleInput = document.getElementById('titleField');
 const expanseInput = document.getElementById('expanseField');
 const addButton = document.getElementById('formAddButton');
+const totalExpanses = document.getElementById('totalExpanses');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
@@ -31,17 +32,19 @@ addButton.addEventListener('click', () => {
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1,
     title: titleInput.value,
-    ammount: expanseInput.value
+    ammount: parseFloat(expanseInput.value)
   });
 
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
+  renderExpanses();
 });
 
 clearButton.addEventListener('click', () => {
   localStorage.clear();
   entries.length = 0;
   renderModalContent();
+  renderExpanses();
   modal.close();
   alert('All entries cleared!');
   titleInput.value = '';
@@ -53,7 +56,26 @@ const deleteEntry = (ID) => {
   entries.splice(entryIndex, 1);
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
+  renderExpanses();
   alert(`Entry ${ID} deleted`);
+}
+
+//* rendering total expanses
+
+const countExpanses = (array) => {
+  let sum = 0;
+
+  console.log(array);
+
+  array.forEach(element => {
+    sum += element.ammount;
+  });
+
+  return sum;
+}
+
+const renderExpanses = () => {
+  totalExpanses.innerText = countExpanses(entries);
 }
 
 //* rendering modal
@@ -101,3 +123,4 @@ const renderModalContent = () => {
 }
 
 renderModalContent();
+renderExpanses();
