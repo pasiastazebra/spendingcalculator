@@ -48,7 +48,7 @@ clearButton.addEventListener('click', () => {
 });
 
 const deleteEntry = (ID) => {
-  const entryIndex = entries.findIndex(entry => entry.ID === ID);
+  const entryIndex = entries.findIndex(entry => entry.ID == ID);
   entries.splice(entryIndex, 1);
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
