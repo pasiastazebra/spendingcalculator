@@ -124,6 +124,25 @@ html {
   }
 }
 
+dialog {
+  opacity: 0;
+  transition: 500ms;
+}
+
+dialog[open] {
+  opacity: 1;
+  transition: 500ms;
+}
+
+.modal {
+  border-radius: 15px;
+  border-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .active{
  &-button{
   background-color: $color3;
@@ -144,13 +163,4 @@ html {
 
   height: 26vh;
  }
-}
-
-.modal {
-  border-radius: 15px;
-  border-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
