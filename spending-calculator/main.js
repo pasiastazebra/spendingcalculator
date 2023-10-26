@@ -32,7 +32,7 @@ addButton.addEventListener('click', () => {
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1,
     title: titleInput.value,
-    ammount: parseFloat(expanseInput.value)
+    ammount: parseFloat(expanseInput.value).toFixed(2)
   });
 
   localStorage.setItem('entries', JSON.stringify(entries));
@@ -75,7 +75,7 @@ const countExpanses = (array) => {
 }
 
 const renderExpanses = () => {
-  totalExpanses.innerText = countExpanses(entries);
+  totalExpanses.innerText = countExpanses(entries).toFixed(2);
 }
 
 //* rendering modal
@@ -92,7 +92,7 @@ const renderEntry = (ID, title, ammount) => {
   entryTitle.innerText = title;
 
   const entryAmmount = document.createElement('p');
-  entryAmmount.innerText = ammount;
+  entryAmmount.innerText = ammount.toFixed(2);
 
   const entryDeleteButton = document.createElement('button');
   entryDeleteButton.innerText = 'Delete';
