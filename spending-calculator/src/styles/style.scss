@@ -10,6 +10,7 @@ $color3: hsl(199, 51%, 36%);
 * {
   //border: 1px;
   //border-style: solid;
+  z-index: 2;
 
   font-family: 'Manjari', sans-serif;
 }
@@ -23,6 +24,8 @@ html {
 .line {
   display: flex;
   justify-content: center;
+
+  background-color: $windowcolor;
 }
 
 .holder {
@@ -38,6 +41,9 @@ html {
     margin-top: 30vh;
     padding-bottom: 5vh;
     width: 50vw;
+
+    height: 18vh;
+    transition: 500ms;
   }
 
   &-title {
@@ -85,33 +91,57 @@ html {
       }
     }
 
-    &-addingmenu-input {
-      transition: 500ms;
+    &-addingmenu{
+      overflow: hidden;
+      &-hidden {
+        transform: translateY(-8vh);
+        z-index: 1;
 
-      width: 49%;
-
-      border: none;
-      border-radius: 2px;
-      background-color: $darkerwindowcolor;
-
-      color: $windowcolor;
-
-      margin: 1% 0.5%;
-
-      &:not(:placeholder-shown) {
+        transition: 500ms;
+      }
+    
+      &-input {
         transition: 500ms;
 
+        width: 49%;
+
+        border: none;
         border-radius: 2px;
         background-color: $darkerwindowcolor;
+
+        color: $windowcolor;
+
+        margin: 1% 0.5%;
+
+        &:not(:placeholder-shown) {
+          transition: 500ms;
+
+          border-radius: 2px;
+          background-color: $darkerwindowcolor;
+        }
       }
     }
   }
 }
 
-.active {
+.active{
+ &-button{
   background-color: $color3;
 
   &:hover {
     background-color: $color2;
   }
+ }
+
+ &-segment{
+  transition: 500ms;
+
+  transform: translateY(0);
+ }
+
+ &-window{
+  transition: 500ms;
+
+  height: 26vh;
+ }
 }

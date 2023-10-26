@@ -11,6 +11,8 @@ const expanseInput = document.getElementById('expanseField');
 const addButton = document.getElementById('formAddButton');
 const totalExpanses = document.getElementById('totalExpanses');
 const expanseSwitch = document.getElementById('expanseSwitch');
+const expanseField = document.getElementById('expanseField');
+const appWindow = document.querySelector('.app-window');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
@@ -26,7 +28,9 @@ closeButton.addEventListener('click', () => {
 //* opening & closing expanse switch
 
 expanseSwitch.addEventListener('click', () => {
-  expanseSwitch.classList.toggle('active');
+  expanseSwitch.classList.toggle('active-button');
+  expanseField.classList.toggle('active-segment');
+  appWindow.classList.toggle('active-window');
 });
 
 //* adding, clearing and deleting buttons
