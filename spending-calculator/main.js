@@ -26,6 +26,7 @@ closeButton.addEventListener('click', () => {
 
 addButton.addEventListener('click', () => {
   const lastEntry = entries[entries.length - 1];
+  event.preventDefault();
 
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1,

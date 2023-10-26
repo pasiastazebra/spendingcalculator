@@ -1,6 +1,7 @@
 //* variables 
 $bgcolor: #bcfcba;
 $windowcolor: #fafafa;
+$darkerwindowcolor: hsl(0, 0%, 68%);
 
 $color1: hsl(199, 81%, 36%);
 $color2: hsl(199, 81%, 56%);
@@ -85,9 +86,24 @@ html {
     }
 
     &-addingmenu-input {
+      transition: 500ms;
+
       width: 49%;
 
+      border: none;
+      border-radius: 2px;
+      background-color: $darkerwindowcolor;
+
+      color: $windowcolor;
+
       margin: 1% 0.5%;
+
+      &:not(:placeholder-shown) {
+        transition: 500ms;
+
+        border-radius: 2px;
+        background-color: $darkerwindowcolor;
+      }
     }
   }
 }
