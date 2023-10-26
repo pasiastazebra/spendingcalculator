@@ -15,6 +15,15 @@ html {
   justify-content: center;
 }
 
+.line {
+  display: flex;
+  justify-content: center;
+}
+
+.holder {
+  width: 30vw;
+}
+
 .app{
  &-window {
     background-color: $windowcolor;
@@ -42,13 +51,20 @@ html {
       display: inline;
     }
   }
-
-  &-button {
-    
-  }
-
   &-content {
     display: grid;
     justify-content: space-around;
+
+    &-button {
+      width: 100%;
+
+      margin: 1%;
+    }
+
+    &-addingmenu-input {
+      width: 49%;
+
+      margin: 1% 0.5%;
+    }
   }
 }
