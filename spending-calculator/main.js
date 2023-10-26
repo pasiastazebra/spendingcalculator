@@ -56,6 +56,22 @@ const deleteEntry = (ID) => {
   alert(`Entry ${ID} deleted`);
 }
 
+const editEntry = (ID) => {
+  const entryIndex = entries.findIndex(entry => entry.ID == ID);
+  const entryTitle = document.getElementById(`${ID}-title`).value;
+  const entryAmmount = document.getElementById(`${ID}-ammount`).value;
+
+  entries[entryIndex].title = entryTitle;
+  entries[entryIndex].ammount = entryAmmount;
+  
+  entries[entryIndex].ammount = parseFloat(entries[entryIndex].ammount).toFixed(2);
+
+  localStorage.setItem('entries', JSON.stringify(entries));
+  renderModalContent();
+  renderExpanses();
+  alert(`Entry ${ID} edited`);
+}
+
 //* rendering total expanses
 
 const countExpanses = (array) => {
@@ -86,11 +102,13 @@ const renderEntry = (ID, title, ammount) => {
   const entryTitle = document.createElement('input');
   entryTitle.type = 'text';
   entryTitle.classList.add('entry-title');
+  entryTitle.id = `${ID}-title`;
   entryTitle.value = title;
 
   const entryAmmount = document.createElement('input');
   entryAmmount.type = 'number';
   entryAmmount.classList.add('entry-ammount');
+  entryAmmount.id = `${ID}-ammount`;
   entryAmmount.value = ammount.toFixed(2);
 
   const entryDeleteButton = document.createElement('button');
@@ -104,6 +122,10 @@ const renderEntry = (ID, title, ammount) => {
   const entryEditButton = document.createElement('button');
   entryEditButton.innerText = 'Edit';
   entryEditButton.classList.add('edit-button');
+
+  entryEditButton.addEventListener('click', () => { 
+    editEntry(entryID.innerText);
+  });
 
   entryDiv.appendChild(entryID);
   entryDiv.appendChild(entryTitle);
