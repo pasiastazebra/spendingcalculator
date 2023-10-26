@@ -83,11 +83,15 @@ const renderEntry = (ID, title, ammount) => {
   const entryID = document.createElement('p');
   entryID.innerText = ID;
 
-  const entryTitle = document.createElement('p');
-  entryTitle.innerText = title;
+  const entryTitle = document.createElement('input');
+  entryTitle.type = 'text';
+  entryTitle.classList.add('entry-title');
+  entryTitle.value = title;
 
-  const entryAmmount = document.createElement('p');
-  entryAmmount.innerText = ammount.toFixed(2);
+  const entryAmmount = document.createElement('input');
+  entryAmmount.type = 'number';
+  entryAmmount.classList.add('entry-ammount');
+  entryAmmount.value = ammount.toFixed(2);
 
   const entryDeleteButton = document.createElement('button');
   entryDeleteButton.innerText = 'Delete';
@@ -97,9 +101,14 @@ const renderEntry = (ID, title, ammount) => {
     deleteEntry(entryID.innerText);
   });
 
+  const entryEditButton = document.createElement('button');
+  entryEditButton.innerText = 'Edit';
+  entryEditButton.classList.add('edit-button');
+
   entryDiv.appendChild(entryID);
   entryDiv.appendChild(entryTitle);
   entryDiv.appendChild(entryAmmount);
+  entryDiv.appendChild(entryEditButton);
   entryDiv.appendChild(entryDeleteButton);
 
   return entryDiv;
