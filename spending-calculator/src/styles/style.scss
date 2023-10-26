@@ -107,3 +107,11 @@ html {
     }
   }
 }
+
+.active {
+  background-color: $color3;
+
+  &:hover {
+    background-color: $color2;
+  }
+}

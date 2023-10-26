@@ -10,6 +10,7 @@ const titleInput = document.getElementById('titleField');
 const expanseInput = document.getElementById('expanseField');
 const addButton = document.getElementById('formAddButton');
 const totalExpanses = document.getElementById('totalExpanses');
+const expanseSwitch = document.getElementById('expanseSwitch');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
@@ -20,6 +21,12 @@ showButton.addEventListener('click', () => {
 
 closeButton.addEventListener('click', () => {
   modal.close();
+});
+
+//* opening & closing expanse switch
+
+expanseSwitch.addEventListener('click', () => {
+  expanseSwitch.classList.toggle('active');
 });
 
 //* adding, clearing and deleting buttons
