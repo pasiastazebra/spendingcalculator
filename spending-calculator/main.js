@@ -6,8 +6,8 @@ const modal = document.querySelector('.modal');
 const showButton = document.getElementById('showModal');
 const closeButton = document.getElementById('closeModal');
 const clearButton = document.getElementById('clearModal');
-const titleInput = document.getElementById('titleField');
-const expanseInput = document.getElementById('expanseField');
+const titleInput = document.getElementById('titleInputField');
+const expanseInput = document.getElementById('expanseInputField');
 const addButton = document.getElementById('formAddButton');
 const totalExpanses = document.getElementById('totalExpanses');
 const expanseSwitch = document.getElementById('expanseSwitch');
@@ -44,6 +44,8 @@ addButton.addEventListener('click', () => {
     title: titleInput.value,
     ammount: parseFloat(expanseInput.value).toFixed(2)
   });
+
+  console.log(titleInput.value);
 
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
