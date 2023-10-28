@@ -124,22 +124,19 @@ html {
   }
 }
 
-dialog {
-  opacity: 0;
-  transition: 500ms;
-}
-
-dialog[open] {
-  opacity: 1;
-  transition: 500ms;
-}
-
 .modal {
   border-radius: 15px;
   border-style: none;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  &-content {
+    &-label {
+      display: grid;
+      grid-template-columns: 30% 30% 30%;
+    }
   }
 }
 
