@@ -13,7 +13,7 @@ $color5: hsl(0, 0%, 88%);
 $closeButton: hsl(0, 63%, 61%);
 $closeButtonOnHover: hsl(0, 63%, 41%);
 
-$rowheight: 3vh;
+$rowheight: 20px;
 
 * {
   z-index: 2;
@@ -197,7 +197,7 @@ html {
       &-entry {
         display: grid;
         grid-template-columns: 5% 30% 30% 15% 15%;
-        height: 5vh;
+        height: 30px;
 
         padding-top: 5px;
 
@@ -217,11 +217,11 @@ html {
         }
 
         &-edit-button {
-          height: calc($rowheight + 1vh);
+          height: calc($rowheight + 6px);
         }
 
         &-delete-button {
-          height: calc($rowheight + 1vh);
+          height: calc($rowheight + 6px);
         }
       }
     }
