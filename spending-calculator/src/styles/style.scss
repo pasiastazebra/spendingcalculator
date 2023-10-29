@@ -10,6 +10,9 @@ $color3: hsl(199, 51%, 36%);
 $color4: hsl(199, 81%, 26%);
 $color5: hsl(0, 0%, 88%);
 
+$oddColor: #dddddd;
+$evenColor: #f5f5f5;
+
 $closeButton: hsl(0, 63%, 61%);
 $closeButtonOnHover: hsl(0, 63%, 41%);
 
@@ -214,18 +217,36 @@ html {
 
         &-title {
           height: $rowheight;
+          margin: 2px 5px;
+
+          border-style: dashed;
+          border-top: 0px;
+          border-left: 0px;
+          border-right: 0px;
+
+          border-width: 1px;
         }
 
         &-ammount {
           height: $rowheight;
+          margin: 2px 5px;
+
+          border-style: dashed;
+          border-top: 0px;
+          border-left: 0px;
+          border-right: 0px;
+
+          border-width: 1px;
         }
 
         &-edit-button {
           height: calc($rowheight + 6px);
+          margin: 0px 5px;
         }
 
         &-delete-button {
           height: calc($rowheight + 6px);
+          margin: 0px 5px;
         }
       }
     }
@@ -256,11 +277,11 @@ html {
 }
 
 .odd {
-  background-color: #dddddd;
+  background-color: $oddColor;
 }
 
 .even {
-  background-color: #f5f5f5;
+  background-color: $evenColor;
 }
 
 #clearModal {
