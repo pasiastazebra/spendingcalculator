@@ -123,14 +123,12 @@ const renderEntry = (ID, title, ammount, sequence) => {
   const entryTitle = document.createElement('input');
   entryTitle.type = 'text';
   entryTitle.classList.add('modal-content-table-entry-title');
-  isEven(sequence) ? entryTitle.classList.add('odd') : entryTitle.classList.add('even');
   entryTitle.id = `${ID}-title`;
   entryTitle.value = title;
 
   const entryAmmount = document.createElement('input');
   entryAmmount.type = 'number';
   entryAmmount.classList.add('modal-content-table-entry-ammount');
-  isEven(sequence) ? entryAmmount.classList.add('odd') : entryAmmount.classList.add('even');
   entryAmmount.id = `${ID}-ammount`;
   entryAmmount.value = ammount.toFixed(2);
 
