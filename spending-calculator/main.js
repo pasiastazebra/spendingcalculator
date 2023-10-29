@@ -107,27 +107,28 @@ const renderExpanses = () => {
 const renderEntry = (ID, title, ammount) => {
 
   const entryDiv = document.createElement('div');
-  entryDiv.classList.add('modal-content-entry');
+  entryDiv.classList.add('modal-content-table-entry');
   entryDiv.id = ID;
 
   const entryID = document.createElement('p');
+  entryID.classList.add('modal-content-table-entry-id');
   entryID.innerText = ID;
 
   const entryTitle = document.createElement('input');
   entryTitle.type = 'text';
-  entryTitle.classList.add('entry-title');
+  entryTitle.classList.add('modal-content-table-entry-title');
   entryTitle.id = `${ID}-title`;
   entryTitle.value = title;
 
   const entryAmmount = document.createElement('input');
   entryAmmount.type = 'number';
-  entryAmmount.classList.add('entry-ammount');
+  entryAmmount.classList.add('modal-content-table-entry-ammount');
   entryAmmount.id = `${ID}-ammount`;
   entryAmmount.value = ammount.toFixed(2);
 
   const entryDeleteButton = document.createElement('button');
   entryDeleteButton.innerText = 'Delete';
-  entryDeleteButton.classList.add('delete-button');
+  entryDeleteButton.classList.add('modal-content-table-entry-delete-button');
 
   entryDeleteButton.addEventListener('click', () => {
     deleteEntry(entryID.innerText);
@@ -135,7 +136,7 @@ const renderEntry = (ID, title, ammount) => {
 
   const entryEditButton = document.createElement('button');
   entryEditButton.innerText = 'Edit';
-  entryEditButton.classList.add('edit-button');
+  entryEditButton.classList.add('modal-content-table-entry-edit-button');
 
   entryEditButton.addEventListener('click', () => { 
     editEntry(entryID.innerText);
