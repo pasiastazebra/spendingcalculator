@@ -219,6 +219,8 @@ html {
           height: $rowheight;
           margin: 2px 5px;
 
+          outline: none;
+
           border-style: dashed;
           border-top: 0px;
           border-left: 0px;
@@ -232,6 +234,8 @@ html {
         &-ammount {
           height: $rowheight;
           margin: 2px 5px;
+
+          outline: none;
 
           border-style: dashed;
           border-top: 0px;
@@ -290,4 +294,10 @@ html {
 
 #clearModal {
   display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
