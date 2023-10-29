@@ -154,6 +154,8 @@ html {
       height: 20px;
 
       color: $windowcolor;
+
+      user-select: none;
     }
 
     &-button {
@@ -164,12 +166,14 @@ html {
 
       padding-top: 5px;
 
-      width: 60px;
-      height: 60px;
+      width: 62px;
+      height: 62px;
 
       background-color: $closeButton;
       font-size: 35px;
       color: $windowcolor;
+
+      user-select: none;
 
       &:hover {
         transition: 500ms;
