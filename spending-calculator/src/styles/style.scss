@@ -7,9 +7,9 @@ $color1: hsl(199, 81%, 36%);
 $color2: hsl(199, 81%, 56%);
 $color3: hsl(199, 51%, 36%);
 
+$rowheight: 3vh;
+
 * {
-  //border: 1px;
-  //border-style: solid;
   z-index: 2;
 
   font-family: 'Manjari', sans-serif;
@@ -133,21 +133,43 @@ html {
   }
 
   &-content {
+
     &-label {
       display: grid;
       grid-template-columns: 30% 30% 30%;
     }
+
     &-table{
+
       &-entry {
         display: grid;
         grid-template-columns: 5% 30% 30% 15% 15%;
-        height: fit-content;
+        height: 8vh;
+
+        justify-content: center;
+
+        &-title {
+          height: $rowheight;
+        }
+
+        &-ammount {
+          height: $rowheight;
+        }
+
+        &-edit-button {
+          height: calc($rowheight + 1vh);
+        }
+
+        &-delete-button {
+          height: calc($rowheight + 1vh);
+        }
       }
     }
   }
 }
 
 .active{
+
  &-button{
   background-color: $color3;
 
