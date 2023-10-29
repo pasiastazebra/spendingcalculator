@@ -16,6 +16,11 @@ const appWindow = document.querySelector('.app-window');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
+//* isEven function
+
+const isEven = (n) => n % 2 == 0;
+
+
 //* opening & closing modal
 showButton.addEventListener('click', () => { 
   modal.showModal();
@@ -104,11 +109,12 @@ const renderExpanses = () => {
 
 //* rendering modal
 
-const renderEntry = (ID, title, ammount) => {
+const renderEntry = (ID, title, ammount, sequence) => {
 
   const entryDiv = document.createElement('div');
   entryDiv.classList.add('modal-content-table-entry');
   entryDiv.id = ID;
+  isEven(sequence) ? entryDiv.classList.add('odd') : entryDiv.classList.add('even');
 
   const entryID = document.createElement('p');
   entryID.classList.add('modal-content-table-entry-id');
@@ -159,7 +165,7 @@ const renderModalContent = () => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount)));
+    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i));
   }
 }
 

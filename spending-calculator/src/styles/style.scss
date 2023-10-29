@@ -152,6 +152,8 @@ html {
         grid-template-columns: 5% 30% 30% 15% 15%;
         height: 5vh;
 
+        padding-top: 5px;
+
         justify-content: center;
 
         &-id {
@@ -200,4 +202,12 @@ html {
 
   height: 26vh;
  }
+}
+
+.odd {
+  background-color: #dddddd;
+}
+
+.even {
+  background-color: #f5f5f5;
 }
