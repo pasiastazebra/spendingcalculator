@@ -7,6 +7,12 @@ $color1: hsl(199, 81%, 36%);
 $color2: hsl(199, 81%, 56%);
 $color3: hsl(199, 51%, 36%);
 
+$color4: hsl(199, 81%, 26%);
+$color5: hsl(0, 0%, 88%);
+
+$closeButton: hsl(0, 63%, 61%);
+$closeButtonOnHover: hsl(0, 63%, 41%);
+
 $rowheight: 3vh;
 
 * {
@@ -127,9 +133,50 @@ html {
 .modal {
   border-radius: 15px;
   border-style: none;
+  padding: 0px;
+
+  background-color: $windowcolor;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: $color4;
+    border-radius: 15px 0px 0px;
+
+    &-title {
+      margin-left: 2vw;
+      font-size: 30px;
+      height: 20px;
+
+      color: $windowcolor;
+    }
+
+    &-button {
+      transition: 500ms;
+
+      border-style: none;
+      border-radius: 0px 15px 0px 0px;
+
+      padding-top: 5px;
+
+      width: 60px;
+      height: 60px;
+
+      background-color: $closeButton;
+      font-size: 35px;
+      color: $windowcolor;
+
+      &:hover {
+        transition: 500ms;
+
+        background-color: $closeButtonOnHover;
+      }
+    }
   }
 
   &-content {
