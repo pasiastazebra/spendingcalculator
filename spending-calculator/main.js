@@ -100,15 +100,13 @@ const renderExpanses = () => totalExpanses.innerText = countExpanses(entries).to
 const renderEntry = (ID, title, ammount, sequence) => {
 
   const entryDiv = entryBuilder(document, ID, sequence);
-
   const entryID = idBuilder(document, ID);
-
   const entryTitle = inputFieldBuilder(document, 'text', 'modal-content-table-entry-title', `${ID}-title`, title);
-
   const entryAmmount = inputFieldBuilder(document, 'number', 'modal-content-table-entry-ammount', `${ID}-ammount`,  ammount.toFixed(2));
 
   const entryDeleteButton = buttonBuilder(document, 'modal-content-table-entry-delete-button',);
   const entryDeleteButtonIcon = iconBuilder('/icons/delete.svg', 'modal-content-table-entry-delete-button-icon', 'Delete');
+
   entryDeleteButton.appendChild(entryDeleteButtonIcon);
 
   entryDeleteButton.addEventListener('click', () => {
@@ -117,6 +115,7 @@ const renderEntry = (ID, title, ammount, sequence) => {
 
   const entryEditButton = buttonBuilder(document, 'modal-content-table-entry-edit-button',);
   const entryEditButtonIcon = iconBuilder('/icons/edit.svg', 'modal-content-table-entry-edit-button-icon', 'Edit');
+  
   entryEditButton.appendChild(entryEditButtonIcon);
 
   entryEditButton.addEventListener('click', () => { 
@@ -133,7 +132,7 @@ const renderEntry = (ID, title, ammount, sequence) => {
 }
 
 const renderModalContent = () => {
-  
+
   const modalContent = document.querySelector('.modal-content-table');
   
   while (modalContent.firstChild) {
