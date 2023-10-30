@@ -1,5 +1,5 @@
 import '/src/styles/style.scss';
-import { idBuilder } from '/src/scripts/functions.js'
+import { idBuilder, iconBuilder } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -131,10 +131,7 @@ const renderEntry = (ID, title, ammount, sequence) => {
   const entryDeleteButton = document.createElement('button');
   entryDeleteButton.classList.add('modal-content-table-entry-delete-button');
 
-  const entryDeleteButtonIcon = new Image();
-  entryDeleteButtonIcon.src = '/icons/delete.svg';
-  entryDeleteButtonIcon.classList.add('modal-content-table-entry-delete-button-icon');
-  entryDeleteButtonIcon.alt = 'Delete';
+  const entryDeleteButtonIcon = iconBuilder('/icons/delete.svg', 'modal-content-table-entry-delete-button-icon', 'Delete');
   entryDeleteButton.appendChild(entryDeleteButtonIcon);
 
   entryDeleteButton.addEventListener('click', () => {
@@ -144,10 +141,7 @@ const renderEntry = (ID, title, ammount, sequence) => {
   const entryEditButton = document.createElement('button');
   entryEditButton.classList.add('modal-content-table-entry-edit-button');
 
-  const entryEditButtonIcon = new Image();
-  entryEditButtonIcon.src = '/icons/edit.svg';
-  entryEditButtonIcon.classList.add('modal-content-table-entry-edit-button-icon');
-  entryEditButtonIcon.alt = 'Edit';
+  const entryEditButtonIcon = iconBuilder('/icons/edit.svg', 'modal-content-table-entry-edit-button-icon', 'Edit');
   entryEditButton.appendChild(entryEditButtonIcon);
 
   entryEditButton.addEventListener('click', () => { 
