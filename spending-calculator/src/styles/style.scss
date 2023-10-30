@@ -251,11 +251,28 @@ html {
         }
 
         &-edit-button {
+
+          transition: 500ms;
+
           height: calc($rowheight + 6px);
           margin: 0px 5px;
 
+          background-color: hsl(214, 67%, 54%);
+
+          border-style: none;
+          border-radius: 5px;
+
+          &:hover {
+
+            transition: 500ms;
+
+            background-color: hsl(214, 67%, 34%);
+          }
+
           &-icon {
             height: $rowheight;
+
+            filter: invert(97%) sepia(91%) saturate(0%) hue-rotate(114deg) brightness(112%) contrast(100%);
           }
         }
 
