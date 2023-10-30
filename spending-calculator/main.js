@@ -1,5 +1,5 @@
 import '/src/styles/style.scss';
-import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder } from '/src/scripts/functions.js'
+import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -63,13 +63,16 @@ const deleteEntry = (ID) => {
   const entryIndex = entries.findIndex(entry => entry.ID == ID);
   entries.splice(entryIndex, 1);
   localStorage.setItem('entries', JSON.stringify(entries));
+
+  alert(`Entry ${ID} deleted`);
+
   renderModalContent();
   renderExpanses();
-  alert(`Entry ${ID} deleted`);
   
 }
 
 const editEntry = (ID) => {
+
   const entryIndex = entries.findIndex(entry => entry.ID == ID);
   const entryTitle = document.getElementById(`${ID}-title`).value;
   const entryAmmount = document.getElementById(`${ID}-ammount`).value;
@@ -80,26 +83,17 @@ const editEntry = (ID) => {
   entries[entryIndex].ammount = parseFloat(entries[entryIndex].ammount).toFixed(2);
 
   localStorage.setItem('entries', JSON.stringify(entries));
+
+  alert(`Entry ${ID} edited`);
+
   renderModalContent();
   renderExpanses();
-  alert(`Entry ${ID} edited`);
+
 }
 
 //* rendering total expanses
 
-const countExpanses = (array) => {
-  let sum = 0.00;
-
-  array.forEach(element => {
-    sum += parseFloat(element.ammount);
-  });
-
-  return sum;
-}
-
-const renderExpanses = () => {
-  totalExpanses.innerText = countExpanses(entries).toFixed(2);
-}
+const renderExpanses = () => totalExpanses.innerText = countExpanses(entries).toFixed(2);
 
 //* rendering modal
 
@@ -139,6 +133,7 @@ const renderEntry = (ID, title, ammount, sequence) => {
 }
 
 const renderModalContent = () => {
+  
   const modalContent = document.querySelector('.modal-content-table');
   
   while (modalContent.firstChild) {
@@ -148,12 +143,15 @@ const renderModalContent = () => {
   for (let i = 0; i < entries.length; i++) {
     modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i));
   }
+
 }
 
 const toggleClass = () => {
+
   expanseSwitch.classList.toggle('active-button');
   expanseField.classList.toggle('active-segment');
   appWindow.classList.toggle('active-window');
+
 }
 
 renderModalContent();

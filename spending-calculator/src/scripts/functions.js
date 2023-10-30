@@ -1,5 +1,15 @@
 const isEven = (n) => n % 2 == 0;
 
+const countExpanses = (array) => {
+    let sum = 0.00;
+  
+    array.forEach(element => {
+      sum += parseFloat(element.ammount);
+    });
+  
+    return sum;
+  }
+
 const entryBuilder = (document, ID, sequence) => {
 
     const newID = document.createElement('div');
@@ -44,4 +54,4 @@ const idBuilder = (document, ID) => {
     return newID;
 }
 
-export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder }
+export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses }
