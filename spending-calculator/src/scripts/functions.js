@@ -37,4 +37,11 @@ const inputFieldBuilder = (document, inputType, cssClass, ID, ammount) => {
     return newInput;
 }
 
-export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder }
+const idBuilder = (document, ID) => {
+    const newID = document.createElement('p');
+    newID.innerText = ID;
+
+    return newID;
+}
+
+export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder }

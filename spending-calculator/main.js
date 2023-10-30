@@ -1,5 +1,5 @@
 import '/src/styles/style.scss';
-import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder } from '/src/scripts/functions.js'
+import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -109,23 +109,9 @@ const renderEntry = (ID, title, ammount, sequence) => {
 
   const entryDiv = entryBuilder(document, ID, sequence);
 
-  const entryID = document.createElement('p');
-  entryID.classList.add('modal-content-table-entry-id');
-  entryID.innerText = ID;
-
-  //const entryTitle = document.createElement('input');
-  //entryTitle.type = 'text';
-  //entryTitle.classList.add('modal-content-table-entry-title');
-  //entryTitle.id = `${ID}-title`;
-  //entryTitle.value = title;
+  const entryID = idBuilder(document, ID);
 
   const entryTitle = inputFieldBuilder(document, 'text', 'modal-content-table-entry-title', ID, title);
-
-  //const entryAmmount = document.createElement('input');
-  //entryAmmount.type = 'number';
-  //entryAmmount.classList.add('modal-content-table-entry-ammount');
-  //entryAmmount.id = `${ID}-ammount`;
-  //entryAmmount.value = ammount.toFixed(2);
 
   const entryAmmount = inputFieldBuilder(document, 'number', 'modal-content-table-entry-ammount', ID, ammount.toFixed(2));
 
