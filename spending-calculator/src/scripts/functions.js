@@ -1,6 +1,6 @@
 const isEven = (n) => n % 2 == 0;
 
-const idBuilder = (document, ID, sequence) => {
+const entryBuilder = (document, ID, sequence) => {
 
     const newID = document.createElement('div');
     newID.classList.add('modal-content-table-entry');
@@ -16,13 +16,25 @@ const iconBuilder = (src, cssClass, alt) => {
     newIcon.src = src;
     newIcon.classList.add(cssClass);
     newIcon.alt = alt;
+
     return newIcon;
 }
 
 const buttonBuilder = (document, cssClass) => {
     const newButton = document.createElement('button');
     newButton.classList.add(cssClass);
+
     return newButton;
 }
 
-export { idBuilder, iconBuilder, buttonBuilder }
+const inputFieldBuilder = (document, inputType, cssClass, ID, ammount) => {
+    const newInput = document.createElement('input');
+    newInput.type = inputType;
+    newInput.classList.add(cssClass);
+    newInput.id = `${ID}-ammount`;
+    newInput.value = ammount.toFixed(2);
+
+    return newInput;
+}
+
+export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder }

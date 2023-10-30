@@ -1,5 +1,5 @@
 import '/src/styles/style.scss';
-import { idBuilder, iconBuilder, buttonBuilder } from '/src/scripts/functions.js'
+import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -107,11 +107,8 @@ const renderExpanses = () => {
 
 const renderEntry = (ID, title, ammount, sequence) => {
 
-  const entryDiv = idBuilder(document, ID, sequence);
-
-  console.log(idBuilder(document, ID, sequence));
-  console.log(entryDiv);
-
+  const entryDiv = entryBuilder(document, ID, sequence);
+  
   const entryID = document.createElement('p');
   entryID.classList.add('modal-content-table-entry-id');
   entryID.innerText = ID;
