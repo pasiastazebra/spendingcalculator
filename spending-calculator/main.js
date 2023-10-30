@@ -1,4 +1,5 @@
 import '/src/styles/style.scss';
+import { isEven } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -15,11 +16,6 @@ const expanseField = document.getElementById('expanseField');
 const appWindow = document.querySelector('.app-window');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
-
-//* isEven function
-
-const isEven = (n) => n % 2 == 0;
-
 
 //* opening & closing modal
 showButton.addEventListener('click', () => { 
