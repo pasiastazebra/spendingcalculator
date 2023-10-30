@@ -133,8 +133,14 @@ const renderEntry = (ID, title, ammount, sequence) => {
   entryAmmount.value = ammount.toFixed(2);
 
   const entryDeleteButton = document.createElement('button');
-  entryDeleteButton.innerText = 'Delete';
+  //entryDeleteButton.innerText = 'Delete';
   entryDeleteButton.classList.add('modal-content-table-entry-delete-button');
+
+  const entryDeleteButtonIcon = new Image();
+  entryDeleteButtonIcon.src = '/public/icons/delete.svg';
+  entryDeleteButtonIcon.classList.add('modal-content-table-entry-delete-button-icon');
+  entryDeleteButtonIcon.alt = 'Delete';
+  entryDeleteButton.appendChild(entryDeleteButtonIcon);
 
   entryDeleteButton.addEventListener('click', () => {
     deleteEntry(entryID.innerText);
