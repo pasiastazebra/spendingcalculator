@@ -115,12 +115,19 @@ html {
         width: 49%;
 
         border: none;
+        outline: none;
         border-radius: 2px;
         background-color: $darkerwindowcolor;
 
         color: $windowcolor;
 
         margin: 1% 0.5%;
+
+        &::placeholder {
+          color: $windowcolor;
+
+          font-style: italic;
+        }
 
         &:not(:placeholder-shown) {
           transition: 500ms;
