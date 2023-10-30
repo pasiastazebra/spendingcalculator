@@ -111,9 +111,9 @@ const renderEntry = (ID, title, ammount, sequence) => {
 
   const entryID = idBuilder(document, ID);
 
-  const entryTitle = inputFieldBuilder(document, 'text', 'modal-content-table-entry-title', ID, title);
+  const entryTitle = inputFieldBuilder(document, 'text', 'modal-content-table-entry-title', title);
 
-  const entryAmmount = inputFieldBuilder(document, 'number', 'modal-content-table-entry-ammount', ID, ammount.toFixed(2));
+  const entryAmmount = inputFieldBuilder(document, 'number', 'modal-content-table-entry-ammount', ammount.toFixed(2));
 
   const entryDeleteButton = buttonBuilder(document, 'modal-content-table-entry-delete-button',);
   const entryDeleteButtonIcon = iconBuilder('/icons/delete.svg', 'modal-content-table-entry-delete-button-icon', 'Delete');
