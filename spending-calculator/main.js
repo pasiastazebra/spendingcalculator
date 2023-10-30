@@ -133,7 +133,6 @@ const renderEntry = (ID, title, ammount, sequence) => {
   entryAmmount.value = ammount.toFixed(2);
 
   const entryDeleteButton = document.createElement('button');
-  //entryDeleteButton.innerText = 'Delete';
   entryDeleteButton.classList.add('modal-content-table-entry-delete-button');
 
   const entryDeleteButtonIcon = new Image();
@@ -147,8 +146,13 @@ const renderEntry = (ID, title, ammount, sequence) => {
   });
 
   const entryEditButton = document.createElement('button');
-  entryEditButton.innerText = 'Edit';
   entryEditButton.classList.add('modal-content-table-entry-edit-button');
+
+  const entryEditButtonIcon = new Image();
+  entryEditButtonIcon.src = '/public/icons/edit.svg';
+  entryEditButtonIcon.classList.add('modal-content-table-entry-edit-button-icon');
+  entryEditButtonIcon.alt = 'Edit';
+  entryEditButton.appendChild(entryEditButtonIcon);
 
   entryEditButton.addEventListener('click', () => { 
     editEntry(entryID.innerText);

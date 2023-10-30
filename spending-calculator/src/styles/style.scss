@@ -253,6 +253,10 @@ html {
         &-edit-button {
           height: calc($rowheight + 6px);
           margin: 0px 5px;
+
+          &-icon {
+            height: $rowheight;
+          }
         }
 
         &-delete-button {
