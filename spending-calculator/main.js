@@ -18,27 +18,20 @@ const appWindow = document.querySelector('.app-window');
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
 //* opening & closing modal
-showButton.addEventListener('click', () => { 
-  modal.showModal();
-});
+showButton.addEventListener('click', () =>  modal.showModal() );
 
-closeButton.addEventListener('click', () => {
-  modal.close();
-});
+closeButton.addEventListener('click', () => modal.close() );
 
 //* opening & closing expanse switch
 
-expanseSwitch.addEventListener('click', () => {
-  expanseSwitch.classList.toggle('active-button');
-  expanseField.classList.toggle('active-segment');
-  appWindow.classList.toggle('active-window');
-});
+expanseSwitch.addEventListener('click', () => toggleClass() );
 
 //* adding, clearing and deleting buttons
 
 addButton.addEventListener('click', () => {
-  const lastEntry = entries[entries.length - 1];
   event.preventDefault();
+
+  const lastEntry = entries[entries.length - 1];
 
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1,
@@ -51,24 +44,29 @@ addButton.addEventListener('click', () => {
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
   renderExpanses();
+
 });
 
 clearButton.addEventListener('click', () => {
+
   localStorage.clear();
   entries.length = 0;
   renderModalContent();
   renderExpanses();
   modal.close();
   alert('All entries cleared!');
+
 });
 
 const deleteEntry = (ID) => {
+
   const entryIndex = entries.findIndex(entry => entry.ID == ID);
   entries.splice(entryIndex, 1);
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
   renderExpanses();
   alert(`Entry ${ID} deleted`);
+  
 }
 
 const editEntry = (ID) => {
@@ -111,9 +109,9 @@ const renderEntry = (ID, title, ammount, sequence) => {
 
   const entryID = idBuilder(document, ID);
 
-  const entryTitle = inputFieldBuilder(document, 'text', 'modal-content-table-entry-title', title);
+  const entryTitle = inputFieldBuilder(document, 'text', 'modal-content-table-entry-title', `${ID}-title`, title);
 
-  const entryAmmount = inputFieldBuilder(document, 'number', 'modal-content-table-entry-ammount', ammount.toFixed(2));
+  const entryAmmount = inputFieldBuilder(document, 'number', 'modal-content-table-entry-ammount', `${ID}-ammount`,  ammount.toFixed(2));
 
   const entryDeleteButton = buttonBuilder(document, 'modal-content-table-entry-delete-button',);
   const entryDeleteButtonIcon = iconBuilder('/icons/delete.svg', 'modal-content-table-entry-delete-button-icon', 'Delete');
@@ -150,6 +148,12 @@ const renderModalContent = () => {
   for (let i = 0; i < entries.length; i++) {
     modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i));
   }
+}
+
+const toggleClass = () => {
+  expanseSwitch.classList.toggle('active-button');
+  expanseField.classList.toggle('active-segment');
+  appWindow.classList.toggle('active-window');
 }
 
 renderModalContent();

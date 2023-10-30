@@ -27,10 +27,11 @@ const buttonBuilder = (document, cssClass) => {
     return newButton;
 }
 
-const inputFieldBuilder = (document, inputType, cssClass, ammount) => {
+const inputFieldBuilder = (document, inputType, cssClass, cssID, ammount) => {
     const newInput = document.createElement('input');
     newInput.type = inputType;
     newInput.classList.add(cssClass);
+    newInput.id = cssID;
     newInput.value = ammount;
 
     return newInput;
