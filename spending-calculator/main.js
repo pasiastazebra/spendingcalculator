@@ -1,5 +1,5 @@
 import '/src/styles/style.scss';
-import { isEven } from '/src/scripts/functions.js'
+import { idBuilder } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -107,10 +107,10 @@ const renderExpanses = () => {
 
 const renderEntry = (ID, title, ammount, sequence) => {
 
-  const entryDiv = document.createElement('div');
-  entryDiv.classList.add('modal-content-table-entry');
-  entryDiv.id = ID;
-  isEven(sequence) ? entryDiv.classList.add('odd') : entryDiv.classList.add('even');
+  const entryDiv = idBuilder(document, ID, sequence);
+
+  console.log(idBuilder(document, ID, sequence));
+  console.log(entryDiv);
 
   const entryID = document.createElement('p');
   entryID.classList.add('modal-content-table-entry-id');
