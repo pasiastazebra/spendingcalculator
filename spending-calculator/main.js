@@ -1,5 +1,5 @@
 import '/src/styles/style.scss';
-import { idBuilder, iconBuilder } from '/src/scripts/functions.js'
+import { idBuilder, iconBuilder, buttonBuilder } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -128,9 +128,7 @@ const renderEntry = (ID, title, ammount, sequence) => {
   entryAmmount.id = `${ID}-ammount`;
   entryAmmount.value = ammount.toFixed(2);
 
-  const entryDeleteButton = document.createElement('button');
-  entryDeleteButton.classList.add('modal-content-table-entry-delete-button');
-
+  const entryDeleteButton = buttonBuilder(document, 'modal-content-table-entry-delete-button',);
   const entryDeleteButtonIcon = iconBuilder('/icons/delete.svg', 'modal-content-table-entry-delete-button-icon', 'Delete');
   entryDeleteButton.appendChild(entryDeleteButtonIcon);
 
@@ -138,9 +136,7 @@ const renderEntry = (ID, title, ammount, sequence) => {
     deleteEntry(entryID.innerText);
   });
 
-  const entryEditButton = document.createElement('button');
-  entryEditButton.classList.add('modal-content-table-entry-edit-button');
-
+  const entryEditButton = buttonBuilder(document, 'modal-content-table-entry-edit-button',);
   const entryEditButtonIcon = iconBuilder('/icons/edit.svg', 'modal-content-table-entry-edit-button-icon', 'Edit');
   entryEditButton.appendChild(entryEditButtonIcon);
 

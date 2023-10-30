@@ -19,4 +19,10 @@ const iconBuilder = (src, cssClass, alt) => {
     return newIcon;
 }
 
-export { idBuilder, iconBuilder }
+const buttonBuilder = (document, cssClass) => {
+    const newButton = document.createElement('button');
+    newButton.classList.add(cssClass);
+    return newButton;
+}
+
+export { idBuilder, iconBuilder, buttonBuilder }
