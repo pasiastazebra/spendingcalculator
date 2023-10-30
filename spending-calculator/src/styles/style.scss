@@ -147,6 +147,9 @@ html {
   &-top {
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 3;
 
     background-color: $color4;
     border-radius: 15px 0px 0px;
