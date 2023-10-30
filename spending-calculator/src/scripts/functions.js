@@ -32,7 +32,7 @@ const inputFieldBuilder = (document, inputType, cssClass, ID, ammount) => {
     newInput.type = inputType;
     newInput.classList.add(cssClass);
     newInput.id = `${ID}-ammount`;
-    newInput.value = ammount.toFixed(2);
+    newInput.value = ammount;
 
     return newInput;
 }
