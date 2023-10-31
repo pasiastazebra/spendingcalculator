@@ -10,6 +10,8 @@ const countExpanses = (array) => {
     return sum;
   }
 
+
+//creates main entry div
 const entryBuilder = (document, ID, sequence) => {
 
     const newEntry = document.createElement('div');
