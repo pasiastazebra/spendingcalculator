@@ -77,7 +77,9 @@ const deleteEntry = (ID) => {
   entries.splice(entryIndex, 1);
   localStorage.setItem('entries', JSON.stringify(entries));
 
-  alert(`Entry ${ID} deleted`);
+  //alert(`Entry ${ID} deleted`);
+
+  showAlert('Deleting entry', `Entry ${ID} deleted`);
 
   renderModalContent();
   renderExpanses();
@@ -177,7 +179,7 @@ const slideDown = () => {
 
 //* alert function
 
-const alert = (title, message) => {
+const showAlert = (title, message) => {
 
   alertTitle.innerText = title;
   alertDescription.innerText = message;
