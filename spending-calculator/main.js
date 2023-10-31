@@ -49,6 +49,9 @@ addButton.addEventListener('click', () => {
     ammount: parseFloat(expanseInput.value).toFixed(2)
   });
 
+  titleInput.value = '';
+  expanseInput.value = '';
+
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
   renderExpanses();
