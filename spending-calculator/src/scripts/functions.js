@@ -12,12 +12,12 @@ const countExpanses = (array) => {
 
 const entryBuilder = (document, ID, sequence) => {
 
-    const newID = document.createElement('div');
-    newID.classList.add('modal-content-table-entry');
-    newID.id = ID;
-    isEven(sequence) ? newID.classList.add('odd') : newID.classList.add('even');
+    const newEntry = document.createElement('div');
+    newEntry.classList.add('modal-content-table-entry');
+    newEntry.id = ID;
+    isEven(sequence) ? newEntry.classList.add('odd') : newEntry.classList.add('even');
 
-    return newID;
+    return newEntry;
 }
 
 const iconBuilder = (src, cssClass, alt) => {
