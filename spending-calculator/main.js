@@ -14,6 +14,7 @@ const totalExpanses = document.getElementById('totalExpanses');
 const expanseSwitch = document.getElementById('expanseSwitch');
 const expanseField = document.getElementById('expanseField');
 const appWindow = document.querySelector('.app-window');
+const alertWindow = document.querySelector('.alert-window');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
@@ -24,7 +25,12 @@ closeButton.addEventListener('click', () => modal.close() );
 
 //* opening & closing expanse switch
 
-expanseSwitch.addEventListener('click', () => toggleClass() );
+expanseSwitch.addEventListener('click', () => {
+
+  toggleClass();
+  slideDown();
+
+});
 
 //* adding, clearing and deleting buttons
 
@@ -150,6 +156,13 @@ const toggleClass = () => {
   expanseSwitch.classList.toggle('active-button');
   expanseField.classList.toggle('active-segment');
   appWindow.classList.toggle('active-window');
+
+}
+
+const slideDown = () => {
+
+  alertWindow.classList.toggle('slideDown');
+  alertWindow.classList.toggle('slideUp');
 
 }
 

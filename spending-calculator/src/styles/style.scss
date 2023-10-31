@@ -33,6 +33,10 @@ html {
   justify-content: center;
 }
 
+body {
+  overflow: hidden;
+}
+
 .line {
   display: flex;
   justify-content: center;
@@ -422,4 +426,21 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.slideDown {
+  transition: 500ms;
+
+  opacity: 1;
+  transform: translateY(30px);
+  
+}
+
+.slideUp {
+  transition: 500ms;
+
+  opacity: 0;
+
+  transform:translateY(-60px);
+
 }
