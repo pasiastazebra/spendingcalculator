@@ -22,6 +22,14 @@ const entryBuilder = (document, ID, sequence) => {
     return newEntry;
 }
 
+//creates button
+const buttonBuilder = (document, cssClass) => {
+    const newButton = document.createElement('button');
+    newButton.classList.add(cssClass);
+
+    return newButton;
+}
+
 const iconBuilder = (src, cssClass, alt) => {
 
     const newIcon = new Image();
@@ -30,13 +38,6 @@ const iconBuilder = (src, cssClass, alt) => {
     newIcon.alt = alt;
 
     return newIcon;
-}
-
-const buttonBuilder = (document, cssClass) => {
-    const newButton = document.createElement('button');
-    newButton.classList.add(cssClass);
-
-    return newButton;
 }
 
 const inputFieldBuilder = (document, inputType, cssClass, cssID, ammount) => {
