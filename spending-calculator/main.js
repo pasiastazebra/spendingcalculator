@@ -67,7 +67,7 @@ clearButton.addEventListener('click', () => {
   renderModalContent();
   renderExpanses();
   
-  showAlert('Clearing entries', `All entry deleted.`);
+  showAlert('Clearing entries', `All entries deleted.`);
   modal.close();
   alertButton.focus();
 
