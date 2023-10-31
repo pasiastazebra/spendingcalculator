@@ -49,7 +49,7 @@ const inputFieldBuilder = (document, inputType, cssClass, cssID, ammount) => {
 
 const idBuilder = (document, ID) => {
     const newID = document.createElement('p');
-    newID.classList.add('modal-content-table-id');
+    newID.classList.add('modal-content-table-entry-id');
     newID.innerText = ID;
 
     return newID;
