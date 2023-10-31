@@ -15,6 +15,9 @@ const expanseSwitch = document.getElementById('expanseSwitch');
 const expanseField = document.getElementById('expanseField');
 const appWindow = document.querySelector('.app-window');
 const alertWindow = document.querySelector('.alert-window');
+const alertTitle = document.querySelector('.alert-window-top-title');
+const alertDescription = document.querySelector('.alert-window-content-description');
+const alertButton = document.querySelector('.alert-window-content-button');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
@@ -150,6 +153,8 @@ const renderModalContent = () => {
   }
 
 }
+
+//* animations functions
 
 const toggleClass = () => {
 
