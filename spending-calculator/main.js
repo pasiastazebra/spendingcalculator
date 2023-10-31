@@ -42,6 +42,7 @@ addButton.addEventListener('click', () => {
   const lastEntry = entries[entries.length - 1];
 
   showAlert('Adding new entry', 'New entry added.');
+  alertButton.focus();
 
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1,
@@ -67,6 +68,7 @@ clearButton.addEventListener('click', () => {
   
   showAlert('Clearing entries', `All entry deleted.`);
   modal.close();
+  alertButton.focus();
 
 });
 
@@ -78,6 +80,7 @@ const deleteEntry = (ID) => {
 
   showAlert('Deleting entry', `Entry ${ID} deleted`);
   modal.close();
+  alertButton.focus();
 
   renderModalContent();
   renderExpanses();
@@ -99,6 +102,7 @@ const editEntry = (ID) => {
 
   showAlert('Editing entry', `Entry ${ID} edited`);
   modal.close();
+  alertButton.focus();
 
   renderModalContent();
   renderExpanses();
