@@ -26,6 +26,10 @@ showButton.addEventListener('click', () =>  modal.showModal() );
 
 closeButton.addEventListener('click', () => modal.close() );
 
+//* closing alertbox
+
+alertButton.addEventListener('click', () => slideDown() );
+
 //* opening & closing expanse switch
 
 expanseSwitch.addEventListener('click', () => {
@@ -168,6 +172,17 @@ const slideDown = () => {
 
   alertWindow.classList.toggle('slideDown');
   alertWindow.classList.toggle('slideUp');
+
+}
+
+//* alert function
+
+const alert = (title, message) => {
+
+  alertTitle.innerText = title;
+  alertDescription.innerText = message;
+
+  slideDown();
 
 }
 
