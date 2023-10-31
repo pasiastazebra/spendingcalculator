@@ -93,7 +93,8 @@ const editEntry = (ID) => {
 
   localStorage.setItem('entries', JSON.stringify(entries));
 
-  alert(`Entry ${ID} edited`);
+  showAlert('Editing entry', `Entry ${ID} edited`);
+  modal.close();
 
   renderModalContent();
   renderExpanses();
