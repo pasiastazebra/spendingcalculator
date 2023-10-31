@@ -32,12 +32,7 @@ alertButton.addEventListener('click', () => slideDown() );
 
 //* opening & closing expanse switch
 
-expanseSwitch.addEventListener('click', () => {
-
-  toggleClass();
-  slideDown();
-
-});
+expanseSwitch.addEventListener('click', () => toggleClass() );
 
 //* adding, clearing and deleting buttons
 
@@ -77,9 +72,8 @@ const deleteEntry = (ID) => {
   entries.splice(entryIndex, 1);
   localStorage.setItem('entries', JSON.stringify(entries));
 
-  //alert(`Entry ${ID} deleted`);
-
   showAlert('Deleting entry', `Entry ${ID} deleted`);
+  modal.close();
 
   renderModalContent();
   renderExpanses();
