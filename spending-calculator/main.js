@@ -41,13 +41,13 @@ addButton.addEventListener('click', () => {
 
   const lastEntry = entries[entries.length - 1];
 
+  showAlert('Adding new entry', 'New entry added.');
+
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1,
     title: titleInput.value,
     ammount: parseFloat(expanseInput.value).toFixed(2)
   });
-
-  console.log(titleInput.value);
 
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
@@ -61,8 +61,9 @@ clearButton.addEventListener('click', () => {
   entries.length = 0;
   renderModalContent();
   renderExpanses();
+  
+  showAlert('Clearing entries', `All entry deleted.`);
   modal.close();
-  alert('All entries cleared!');
 
 });
 
