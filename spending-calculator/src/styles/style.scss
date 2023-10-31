@@ -41,6 +41,36 @@ html {
   width: 30vw;
 }
 
+.alert-window {
+
+  &-top {
+
+    &-title {
+
+
+
+    }
+
+  }
+
+  &-content {
+
+    &-description {
+
+
+
+    }
+
+    &-button {
+
+      
+
+    }
+
+  }
+
+}
+
 .app{
  &-window {
     background-color: $windowcolor;
