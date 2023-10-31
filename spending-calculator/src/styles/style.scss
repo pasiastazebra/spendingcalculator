@@ -16,6 +16,9 @@ $evenColor: #f5f5f5;
 $closeButton: hsl(0, 63%, 61%);
 $closeButtonOnHover: hsl(0, 63%, 41%);
 
+$alertButton: hsl(130, 62%, 51%);
+$alertButtonOnHover: hsl(130, 62%, 31%);
+
 $rowheight: 20px;
 
 * {
@@ -72,15 +75,36 @@ html {
 
   &-content {
 
+    padding: 15px;
+
     &-description {
 
-
+      align-self:baseline;
 
     }
 
     &-button {
 
+      transition: 500ms;
 
+      width: 30%;
+      margin-left: 35%;
+
+      border-style: none;
+      border-radius: 3px;
+
+      background-color: $alertButton;
+
+      font-size: 15px;
+      color: $windowcolor;
+
+      &:hover {
+
+        transition: 500ms;
+
+        background-color: $alertButtonOnHover;
+
+      }
 
     }
 
