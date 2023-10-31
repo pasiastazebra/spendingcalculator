@@ -18,6 +18,7 @@ const alertWindow = document.querySelector('.alert-window');
 const alertTitle = document.querySelector('.alert-window-top-title');
 const alertDescription = document.querySelector('.alert-window-content-description');
 const alertButton = document.querySelector('.alert-window-content-button');
+const alertOverlay = document.querySelector('.alert-overlay');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 
@@ -28,7 +29,7 @@ closeButton.addEventListener('click', () => modal.close() );
 
 //* closing alertbox
 
-alertButton.addEventListener('click', () => slideDown() );
+alertButton.addEventListener('click', () => {slideDown(); alertOverlay.style.display = 'none';} );
 
 //* opening & closing expanse switch
 
@@ -187,6 +188,7 @@ const showAlert = (title, message) => {
   alertTitle.innerText = title;
   alertDescription.innerText = message;
 
+  alertOverlay.style.display = 'block';
   slideDown();
 
 }
