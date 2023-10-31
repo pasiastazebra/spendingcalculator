@@ -52,6 +52,7 @@ const inputFieldBuilder = (document, inputType, cssClass, cssID, ammount) => {
     return newInput;
 }
 
+//creates ID field
 const idBuilder = (document, ID) => {
     const newID = document.createElement('p');
     newID.classList.add('modal-content-table-entry-id');
