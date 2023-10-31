@@ -30,6 +30,7 @@ const buttonBuilder = (document, cssClass) => {
     return newButton;
 }
 
+//creates icon
 const iconBuilder = (src, cssClass, alt) => {
 
     const newIcon = new Image();
