@@ -43,11 +43,23 @@ html {
 
 .alert-window {
 
+  background-color: $windowcolor;
+  box-shadow: 5px 5px 15px;
+
+  border-radius: 15px;
+
   &-top {
+
+    margin: 0;
+    padding: 4px 10px;
+
+    background-color: $color1;
+
+    border-radius: 15px 15px 0 0;
 
     &-title {
 
-
+      margin: 0;
 
     }
 
@@ -63,7 +75,7 @@ html {
 
     &-button {
 
-      
+
 
     }
 
