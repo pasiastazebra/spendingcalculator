@@ -44,6 +44,7 @@ const iconBuilder = (src, cssClass, alt) => {
 //creates input field
 const inputFieldBuilder = (document, inputType, cssClass, cssID, ammount) => {
     const newInput = document.createElement('input');
+    
     newInput.type = inputType;
     newInput.classList.add(cssClass);
     newInput.id = cssID;

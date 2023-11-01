@@ -121,12 +121,13 @@ const renderExpanses = () => totalExpanses.innerText = countExpanses(entries).to
 
 //* rendering modal
 
-const renderEntry = (ID, title, ammount, sequence) => {
+const renderEntry = (ID, title, ammount, sequence, date) => {
 
   const entryDiv = entryBuilder(document, ID, sequence);
   const entryID = idBuilder(document, ID);
   const entryTitle = inputFieldBuilder(document, 'text', 'modal-content-table-entry-title', `${ID}-title`, title);
   const entryAmmount = inputFieldBuilder(document, 'number', 'modal-content-table-entry-ammount', `${ID}-ammount`,  ammount.toFixed(2));
+  const entryDate = inputFieldBuilder(document, 'date', 'modal-content-table-entry-date', `${ID}-date`, date);
 
   const entryDeleteButton = buttonBuilder(document, 'modal-content-table-entry-delete-button',);
   const entryDeleteButtonIcon = iconBuilder('/icons/delete.svg', 'modal-content-table-entry-delete-button-icon', 'Delete');
@@ -149,6 +150,7 @@ const renderEntry = (ID, title, ammount, sequence) => {
   entryDiv.appendChild(entryID);
   entryDiv.appendChild(entryTitle);
   entryDiv.appendChild(entryAmmount);
+  entryDiv.appendChild(entryDate);
   entryDiv.appendChild(entryEditButton);
   entryDiv.appendChild(entryDeleteButton);
 
@@ -164,7 +166,7 @@ const renderModalContent = () => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i));
+    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i, entries[i].date));
   }
 
 }
