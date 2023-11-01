@@ -42,27 +42,35 @@ expanseSwitch.addEventListener('click', () => toggleClass() );
 addButton.addEventListener('click', () => {
   event.preventDefault();
 
-  const lastEntry = entries[entries.length - 1];
+  if ( isFuture(dateInput.value) ) {
 
-  showAlert('Adding new entry', 'New entry added.');
-  alertButton.focus();
+    showAlert('Future date chosen', `Cannot add entry. Please chose correct date and try again.`);
+    alertButton.focus();
 
-  entries.push({
-    ID: lastEntry ? lastEntry.ID + 1 : 1,
-    title: titleInput.value,
-    ammount: parseFloat(expanseInput.value).toFixed(2),
-    date: dateInput.value
-  });
-  console.log(entries);
+  } else {
 
-  titleInput.value = '';
-  expanseInput.value = '';
-  dateInput.valueAsDate = new Date();
+    const lastEntry = entries[entries.length - 1];
 
-  localStorage.setItem('entries', JSON.stringify(entries));
-  renderModalContent();
-  renderExpanses();
-
+    showAlert('Adding new entry', 'New entry added.');
+    alertButton.focus();
+  
+    entries.push({
+      ID: lastEntry ? lastEntry.ID + 1 : 1,
+      title: titleInput.value,
+      ammount: parseFloat(expanseInput.value).toFixed(2),
+      date: dateInput.value
+    });
+    console.log(entries);
+  
+    titleInput.value = '';
+    expanseInput.value = '';
+    dateInput.valueAsDate = new Date();
+  
+    localStorage.setItem('entries', JSON.stringify(entries));
+    renderModalContent();
+    renderExpanses();
+    
+ }
 });
 
 clearButton.addEventListener('click', () => {
