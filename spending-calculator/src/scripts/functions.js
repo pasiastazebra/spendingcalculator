@@ -1,6 +1,7 @@
 const isEven = (n) => n % 2 == 0;
 
 const countExpanses = (array) => {
+
     let sum = 0.00;
   
     array.forEach(element => {
@@ -8,9 +9,11 @@ const countExpanses = (array) => {
     });
   
     return sum;
-  }
+
+}
 
 const isFuture = (date) => {
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -31,14 +34,17 @@ const entryBuilder = (document, ID, sequence) => {
     isEven(sequence) ? newEntry.classList.add('odd') : newEntry.classList.add('even');
 
     return newEntry;
+    
 }
 
 //creates button
 const buttonBuilder = (document, cssClass) => {
+
     const newButton = document.createElement('button');
     newButton.classList.add(cssClass);
 
     return newButton;
+
 }
 
 //creates icon
@@ -50,10 +56,12 @@ const iconBuilder = (src, cssClass, alt) => {
     newIcon.alt = alt;
 
     return newIcon;
+
 }
 
 //creates input field
 const inputFieldBuilder = (document, inputType, cssClass, cssID, ammount) => {
+
     const newInput = document.createElement('input');
 
     newInput.type = inputType;
@@ -62,15 +70,18 @@ const inputFieldBuilder = (document, inputType, cssClass, cssID, ammount) => {
     newInput.value = ammount;
 
     return newInput;
+
 }
 
 //creates ID field
 const idBuilder = (document, ID) => {
+
     const newID = document.createElement('p');
     newID.classList.add('modal-content-table-entry-id');
     newID.innerText = ID;
 
     return newID;
+
 }
 
 //creates currency field
