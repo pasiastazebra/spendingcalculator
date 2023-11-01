@@ -98,9 +98,11 @@ const editEntry = (ID) => {
   const entryIndex = entries.findIndex(entry => entry.ID == ID);
   const entryTitle = document.getElementById(`${ID}-title`).value;
   const entryAmmount = document.getElementById(`${ID}-ammount`).value;
+  const entryDate = document.getElementById(`${ID}-date`).value;
 
   entries[entryIndex].title = entryTitle;
   entries[entryIndex].ammount = entryAmmount;
+  entries[entryIndex].date = entryDate;
   
   entries[entryIndex].ammount = parseFloat(entries[entryIndex].ammount).toFixed(2);
 
