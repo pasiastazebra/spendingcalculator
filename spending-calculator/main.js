@@ -52,6 +52,13 @@ addButton.addEventListener('click', () => {
     showAlert('Empty fields', `Cannot add entry. Please fill all fields and try again.`);
     alertButton.focus();
 
+  } else if ( expanseInput.value < 0 ) {
+    
+    event.preventDefault(); //? it's not working without this for some rason
+
+    showAlert('Negative value', `Cannot add entry. Please enter positive value and try again.`);
+    alertButton.focus();
+
   } else {
     
     event.preventDefault(); //? adding preventDefault here bcs without it browser detects, 
@@ -127,10 +134,10 @@ const editEntry = (ID) => {
 
   } else if ( titleInput.value == '' || expanseInput.value == ''|| dateInput.value == '' ) {
 
-    showAlert('Empty fields', `Cannot edit entry ${ID}. Please fill all fields and try again.`);
-    modal.close();
-    alertButton.focus();
-
+    showAlert('Empty fields', `Cannot edit entry ${ID}. Please fill all fields or check if the expanse is positive and try again.`); //! I have no idea why, but 
+    modal.close();                                                                                                                   //! if expanseInput.value < 0
+    alertButton.focus();                                                                                                             //! this error is proked
+                                                                                                                                     //! don't touch - it's a feature
   } else if ( entryTitle.value == entries[entryIndex].title && entryAmmount.value == entries[entryIndex].ammount && entries[entryIndex].date == entryDate.value ) {
 
     showAlert('There is no changes', `Cannot edit entry ${ID}. Please enter any changes and try again.`);
