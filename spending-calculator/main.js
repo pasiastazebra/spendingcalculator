@@ -32,7 +32,8 @@ currencyInput.addEventListener('input', () => {
   localStorage.setItem('currency', JSON.stringify(currencyInput.value));
   let currency = JSON.parse(localStorage.getItem('currency')) || 'USD';
   currencyInput.value = currency;
-  console.log(currency);} );
+  renderModalContent(currency);
+} );
 
 //* opening & closing modal
 showButton.addEventListener('click', () =>  modal.showModal() );
@@ -218,7 +219,7 @@ const renderEntry = (ID, title, ammount, sequence, date, currencyString) => {
   return entryDiv;
 }
 
-const renderModalContent = () => {
+const renderModalContent = (currencyString) => {
 
   const modalContent = document.querySelector('.modal-content-table');
   
@@ -227,7 +228,7 @@ const renderModalContent = () => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i, entries[i].date, currency));
+    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i, entries[i].date, currencyString));
   }
 
 }
@@ -261,5 +262,5 @@ const showAlert = (title, message) => {
 
 }
 
-renderModalContent();
+renderModalContent(currency);
 renderExpanses();
