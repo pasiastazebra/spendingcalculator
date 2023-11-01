@@ -50,11 +50,14 @@ addButton.addEventListener('click', () => {
   entries.push({
     ID: lastEntry ? lastEntry.ID + 1 : 1,
     title: titleInput.value,
-    ammount: parseFloat(expanseInput.value).toFixed(2)
+    ammount: parseFloat(expanseInput.value).toFixed(2),
+    date: dateInput.value
   });
+  console.log(entries);
 
   titleInput.value = '';
   expanseInput.value = '';
+  dateInput.valueAsDate = new Date();
 
   localStorage.setItem('entries', JSON.stringify(entries));
   renderModalContent();
