@@ -98,7 +98,16 @@ const editEntry = (ID) => {
   const entryIndex = entries.findIndex(entry => entry.ID == ID);
   const entryTitle = document.getElementById(`${ID}-title`).value;
   const entryAmmount = document.getElementById(`${ID}-ammount`).value;
-  const entryDate = document.getElementById(`${ID}-date`).value;
+  const entryDate = new Date(document.getElementById(`${ID}-date`).value);
+  const todayDate = new Date();
+
+  if (entryDate > todayDate) {
+
+    showAlert('Future date chosen', `Cannot edit entry ${ID}. Please chose correct date.`);
+    modal.close();
+    alertButton.focus();
+
+  } else {
 
   entries[entryIndex].title = entryTitle;
   entries[entryIndex].ammount = entryAmmount;
@@ -115,6 +124,7 @@ const editEntry = (ID) => {
   renderModalContent();
   renderExpanses();
 
+  }
 }
 
 //* rendering total expanses
