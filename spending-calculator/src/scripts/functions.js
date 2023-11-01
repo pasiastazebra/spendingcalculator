@@ -73,4 +73,14 @@ const idBuilder = (document, ID) => {
     return newID;
 }
 
-export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses, isFuture }
+const currencyBuilder = (document, currency) => {
+
+    const newCurrency = document.createElement('p');
+    newCurrency.classList.add('modal-content-table-entry-currency');
+    newCurrency.innerText = currency;
+
+    return newCurrency;
+
+}
+
+export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses, isFuture, currencyBuilder }

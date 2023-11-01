@@ -1,5 +1,5 @@
 import '/src/styles/style.scss';
-import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses, isFuture } from '/src/scripts/functions.js'
+import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses, isFuture, currencyBuilder } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -20,9 +20,19 @@ const alertTitle = document.querySelector('.alert-window-top-title');
 const alertDescription = document.querySelector('.alert-window-content-description');
 const alertButton = document.querySelector('.alert-window-content-button');
 const alertOverlay = document.querySelector('.alert-overlay');
+const currencyInput = document.querySelector('.app-counter-currency');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 dateInput.valueAsDate = new Date();
+
+let currency = JSON.parse(localStorage.getItem('currency')) || 'USD';
+currencyInput.value = currency;
+
+currencyInput.addEventListener('input', () => {
+  localStorage.setItem('currency', JSON.stringify(currencyInput.value));
+  let currency = JSON.parse(localStorage.getItem('currency')) || 'USD';
+  currencyInput.value = currency;
+  console.log(currency);} );
 
 //* opening & closing modal
 showButton.addEventListener('click', () =>  modal.showModal() );
@@ -170,12 +180,13 @@ const renderExpanses = () => totalExpanses.innerText = countExpanses(entries).to
 
 //* rendering modal
 
-const renderEntry = (ID, title, ammount, sequence, date) => {
+const renderEntry = (ID, title, ammount, sequence, date, currencyString) => {
 
   const entryDiv = entryBuilder(document, ID, sequence);
   const entryID = idBuilder(document, ID);
   const entryTitle = inputFieldBuilder(document, 'text', 'modal-content-table-entry-title', `${ID}-title`, title);
   const entryAmmount = inputFieldBuilder(document, 'number', 'modal-content-table-entry-ammount', `${ID}-ammount`,  ammount.toFixed(2));
+  const entryCurrency = currencyBuilder(document, currencyString);
   const entryDate = inputFieldBuilder(document, 'date', 'modal-content-table-entry-date', `${ID}-date`, date);
 
   const entryDeleteButton = buttonBuilder(document, 'modal-content-table-entry-delete-button',);
@@ -199,6 +210,7 @@ const renderEntry = (ID, title, ammount, sequence, date) => {
   entryDiv.appendChild(entryID);
   entryDiv.appendChild(entryTitle);
   entryDiv.appendChild(entryAmmount);
+  entryDiv.appendChild(entryCurrency);
   entryDiv.appendChild(entryDate);
   entryDiv.appendChild(entryEditButton);
   entryDiv.appendChild(entryDeleteButton);
@@ -215,7 +227,7 @@ const renderModalContent = () => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i, entries[i].date));
+    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i, entries[i].date, currency));
   }
 
 }
