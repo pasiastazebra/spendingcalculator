@@ -100,15 +100,21 @@ const editEntry = (ID) => {
   const entryAmmount = document.getElementById(`${ID}-ammount`);
   const entryDate = document.getElementById(`${ID}-date`);
 
-  if (isFuture(entryDate.value)) {
+  if ( isFuture(entryDate.value) ) {
 
-    showAlert('Future date chosen', `Cannot edit entry ${ID}. Please chose correct date.`);
+    showAlert('Future date chosen', `Cannot edit entry ${ID}. Please chose correct date and try again.`);
     modal.close();
     alertButton.focus();
 
     entryTitle.value = entries[entryIndex].title;
     entryAmmount.value = entries[entryIndex].ammount;
     entryDate.value = entries[entryIndex].date;
+
+  } else if ( entryTitle.value == entries[entryIndex].title && entryAmmount.value == entries[entryIndex].ammount && entries[entryIndex].date == entryDate.value ) {
+
+    showAlert('There is no changes', `Cannot edit entry ${ID}. Please enter any changes and try again.`);
+    modal.close();
+    alertButton.focus();
 
   } else {
 
