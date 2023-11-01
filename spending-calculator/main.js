@@ -9,6 +9,7 @@ const closeButton = document.getElementById('closeModal');
 const clearButton = document.getElementById('clearModal');
 const titleInput = document.getElementById('titleInputField');
 const expanseInput = document.getElementById('expanseInputField');
+const dateInput = document.getElementById('dateInputField');
 const addButton = document.getElementById('formAddButton');
 const totalExpanses = document.getElementById('totalExpanses');
 const expanseSwitch = document.getElementById('expanseSwitch');
