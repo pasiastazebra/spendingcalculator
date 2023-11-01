@@ -73,6 +73,7 @@ const idBuilder = (document, ID) => {
     return newID;
 }
 
+//creates currency field
 const currencyBuilder = (document, currency) => {
 
     const newCurrency = document.createElement('p');
