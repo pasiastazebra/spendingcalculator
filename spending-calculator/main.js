@@ -25,12 +25,12 @@ const currencyInput = document.querySelector('.app-counter-currency');
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
 dateInput.valueAsDate = new Date();
 
-let currency = JSON.parse(localStorage.getItem('currency')) || 'USD';
+let currency = JSON.parse(localStorage.getItem('currency'));
 currencyInput.value = currency;
 
 currencyInput.addEventListener('input', () => {
   localStorage.setItem('currency', JSON.stringify(currencyInput.value));
-  let currency = JSON.parse(localStorage.getItem('currency')) || 'USD';
+  let currency = JSON.parse(localStorage.getItem('currency'));
   currencyInput.value = currency;
   renderModalContent(currency);
 } );
