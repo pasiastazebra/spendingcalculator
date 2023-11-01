@@ -47,7 +47,7 @@ addButton.addEventListener('click', () => {
     showAlert('Future date chosen', `Cannot add entry. Please chose correct date and try again.`);
     alertButton.focus();
 
-  } else if ( titleInput.value == '' || expanseInput.value == '' ) {
+  } else if ( titleInput.value == '' || expanseInput.value == ''|| dateInput.value == '' ) {
 
     showAlert('Empty fields', `Cannot add entry. Please fill all fields and try again.`);
     alertButton.focus();
