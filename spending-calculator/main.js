@@ -22,6 +22,7 @@ const alertButton = document.querySelector('.alert-window-content-button');
 const alertOverlay = document.querySelector('.alert-overlay');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || [];
+dateInput.valueAsDate = new Date();
 
 //* opening & closing modal
 showButton.addEventListener('click', () =>  modal.showModal() );
