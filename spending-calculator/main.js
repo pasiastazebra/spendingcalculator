@@ -40,7 +40,7 @@ expanseSwitch.addEventListener('click', () => toggleClass() );
 //* adding, clearing and deleting buttons
 
 addButton.addEventListener('click', () => {
-  event.preventDefault();
+  //
 
   if ( isFuture(dateInput.value) ) {
 
@@ -52,7 +52,10 @@ addButton.addEventListener('click', () => {
     showAlert('Empty fields', `Cannot add entry. Please fill all fields and try again.`);
     alertButton.focus();
 
-  } else { 
+  } else {
+    
+    event.preventDefault(); //? adding preventDefault here bcs without it browser detects, 
+                            //? that input fields are cleared right below and throw an alert about empty field
 
     const lastEntry = entries[entries.length - 1];
 
@@ -65,12 +68,11 @@ addButton.addEventListener('click', () => {
       ammount: parseFloat(expanseInput.value).toFixed(2),
       date: dateInput.value
     });
-    console.log(entries);
-  
+
     titleInput.value = '';
     expanseInput.value = '';
     dateInput.valueAsDate = new Date();
-  
+
     localStorage.setItem('entries', JSON.stringify(entries));
     renderModalContent();
     renderExpanses();
