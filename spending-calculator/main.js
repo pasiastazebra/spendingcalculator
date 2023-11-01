@@ -125,6 +125,12 @@ const editEntry = (ID) => {
     entryAmmount.value = entries[entryIndex].ammount;
     entryDate.value = entries[entryIndex].date;
 
+  } else if ( titleInput.value == '' || expanseInput.value == ''|| dateInput.value == '' ) {
+
+    showAlert('Empty fields', `Cannot edit entry ${ID}. Please fill all fields and try again.`);
+    modal.close();
+    alertButton.focus();
+
   } else if ( entryTitle.value == entries[entryIndex].title && entryAmmount.value == entries[entryIndex].ammount && entries[entryIndex].date == entryDate.value ) {
 
     showAlert('There is no changes', `Cannot edit entry ${ID}. Please enter any changes and try again.`);
