@@ -10,6 +10,17 @@ const countExpanses = (array) => {
     return sum;
   }
 
+const isFuture = (date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    date = new Date(date);
+    date.setHours(0, 0, 0, 0);
+
+    if (date > today) return true; 
+    else return false;
+
+}
 
 //creates main entry div
 const entryBuilder = (document, ID, sequence) => {
@@ -44,7 +55,7 @@ const iconBuilder = (src, cssClass, alt) => {
 //creates input field
 const inputFieldBuilder = (document, inputType, cssClass, cssID, ammount) => {
     const newInput = document.createElement('input');
-    
+
     newInput.type = inputType;
     newInput.classList.add(cssClass);
     newInput.id = cssID;
@@ -62,4 +73,4 @@ const idBuilder = (document, ID) => {
     return newID;
 }
 
-export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses }
+export { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses, isFuture }

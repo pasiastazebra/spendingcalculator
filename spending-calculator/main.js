@@ -1,5 +1,5 @@
 import '/src/styles/style.scss';
-import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses } from '/src/scripts/functions.js'
+import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses, isFuture } from '/src/scripts/functions.js'
 
 //* elements consts
 
@@ -96,22 +96,25 @@ const deleteEntry = (ID) => {
 const editEntry = (ID) => {
 
   const entryIndex = entries.findIndex(entry => entry.ID == ID);
-  const entryTitle = document.getElementById(`${ID}-title`).value;
-  const entryAmmount = document.getElementById(`${ID}-ammount`).value;
-  const entryDate = new Date(document.getElementById(`${ID}-date`).value);
-  const todayDate = new Date();
+  const entryTitle = document.getElementById(`${ID}-title`);
+  const entryAmmount = document.getElementById(`${ID}-ammount`);
+  const entryDate = document.getElementById(`${ID}-date`);
 
-  if (entryDate > todayDate) {
+  if (isFuture(entryDate.value)) {
 
     showAlert('Future date chosen', `Cannot edit entry ${ID}. Please chose correct date.`);
     modal.close();
     alertButton.focus();
 
+    entryTitle.value = entries[entryIndex].title;
+    entryAmmount.value = entries[entryIndex].ammount;
+    entryDate.value = entries[entryIndex].date;
+
   } else {
 
-  entries[entryIndex].title = entryTitle;
-  entries[entryIndex].ammount = entryAmmount;
-  entries[entryIndex].date = entryDate;
+  entries[entryIndex].title = entryTitle.value;
+  entries[entryIndex].ammount = entryAmmount.value;
+  entries[entryIndex].date = entryDate.value;
   
   entries[entryIndex].ammount = parseFloat(entries[entryIndex].ammount).toFixed(2);
 
