@@ -22,9 +22,12 @@ const alertButton = document.querySelector('.alert-window-content-button');
 const alertOverlay = document.querySelector('.alert-overlay');
 const currencyInput = document.querySelector('.app-counter-currency');
 
-const entries = JSON.parse(localStorage.getItem('entries')) || [];
-dateInput.valueAsDate = new Date();
+const entries = JSON.parse(localStorage.getItem('entries')) || []; // getting entries from local storage
 
+dateInput.valueAsDate = new Date(); //creating current date as defalut state
+
+
+//* currency things
 let currency = JSON.parse(localStorage.getItem('currency'));
 currencyInput.value = currency;
 
