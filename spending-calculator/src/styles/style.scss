@@ -299,9 +299,42 @@ body {
       padding-left: 5px;
 
       display: grid;
-      grid-template-columns: 5% 34% 21.5%  22%;
+      grid-template-columns: 5% 34% 21.5%  22% 20%;
 
       justify-content: left;
+      align-items: center;
+
+      &-button {
+
+        transition: 500ms;
+
+        height: calc($rowheight + 6px);
+        margin: 0px 5px;
+
+        background-color: hsl(133, 67%, 44%);
+
+        border-style: none;
+        border-radius: 5px;
+
+        margin-left: 0;
+
+        &:hover {
+
+          transition: 500ms;
+
+          background-color: hsl(133, 67%, 24%);
+
+        }
+
+        &-icon {
+
+          height: $rowheight;
+
+          filter: invert(97%) sepia(91%) saturate(0%) hue-rotate(114deg) brightness(112%) contrast(100%);
+
+        }
+
+      }
 
     }
 
