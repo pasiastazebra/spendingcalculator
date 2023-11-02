@@ -39,6 +39,7 @@ generateExcelButton.addEventListener('click', () => {
   const convertedEntries = newestEntries.map((row) => [row.ID, row.title, row.ammount, row.date]);
 
   generateExcel(convertedEntries);
+  modal.close();
   showAlert('Generating spreadsheet', 'Spreadsheet generated.');
   alertButton.focus();
 });
