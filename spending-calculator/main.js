@@ -167,6 +167,10 @@ const editEntry = (ID) => {
   const entryAmmount = document.getElementById(`${ID}-ammount`);
   const entryDate = document.getElementById(`${ID}-date`);
 
+  console.log(entryTitle.value);
+  console.log(entryAmmount.value);
+  console.log(entryDate.value);
+
   if ( isFuture(entryDate.value) ) {
 
     showAlert('Future date chosen', `Cannot edit entry ${ID}. Please chose correct date and try again.`);
@@ -177,15 +181,14 @@ const editEntry = (ID) => {
     entryAmmount.value = entries[entryIndex].ammount;
     entryDate.value = entries[entryIndex].date;
 
-  } else if ( titleInput.value == '' || expanseInput.value == ''|| dateInput.value == '' ) {
+  } else if ( entryTitle.value == '' || entryAmmount.value == ''|| entryDate.value == '' || entryAmmount.value <= 0 ) {
 
-    showAlert('Empty fields', `Cannot edit entry ${ID}. Please fill all fields or check if the expanse is positive and try again.`); //! I have no idea why, but 
-    modal.close();                                                                                                                   //! if expanseInput.value < 0
-    alertButton.focus();                                                                                                             //! this error is proked
-                                                                                                                                     //! don't touch - it's a feature
+    showAlert('Empty fields or negative expanse', `Cannot edit entry ${ID}. Please fill all fields or check if the expanse is positive and try again.`);
+    modal.close();
+    alertButton.focus();
   } else if ( entryTitle.value == entries[entryIndex].title && entryAmmount.value == entries[entryIndex].ammount && entries[entryIndex].date == entryDate.value ) {
 
-    showAlert('There is no changes', `Cannot edit entry ${ID}. Please enter any changes and try again.`);
+    showAlert('There are no changes', `Cannot edit entry ${ID}. Please enter any changes and try again.`);
     modal.close();
     alertButton.focus();
 
