@@ -193,7 +193,7 @@ const renderEntry = (ID, title, ammount, sequence, date, currencyString) => {
   const entryCurrency = currencyBuilder(document, currencyString);
   const entryDate = inputFieldBuilder(document, 'date', 'modal-content-table-entry-date', `${ID}-date`, date);
 
-  const entryDeleteButton = buttonBuilder(document, 'modal-content-table-entry-delete-button',);
+  const entryDeleteButton = buttonBuilder(document, 'modal-content-table-entry-delete-button', 'Delete entry');
   const entryDeleteButtonIcon = iconBuilder('/icons/delete.svg', 'modal-content-table-entry-delete-button-icon', 'Delete');
 
   entryDeleteButton.appendChild(entryDeleteButtonIcon);
@@ -202,7 +202,7 @@ const renderEntry = (ID, title, ammount, sequence, date, currencyString) => {
     deleteEntry(entryID.innerText);
   });
 
-  const entryEditButton = buttonBuilder(document, 'modal-content-table-entry-edit-button',);
+  const entryEditButton = buttonBuilder(document, 'modal-content-table-entry-edit-button', 'Edit entry');
   const entryEditButtonIcon = iconBuilder('/icons/edit.svg', 'modal-content-table-entry-edit-button-icon', 'Edit');
   
   entryEditButton.appendChild(entryEditButtonIcon);

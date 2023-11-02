@@ -38,10 +38,11 @@ const entryBuilder = (document, ID, sequence) => {
 }
 
 //creates button
-const buttonBuilder = (document, cssClass) => {
+const buttonBuilder = (document, cssClass, title) => {
 
     const newButton = document.createElement('button');
     newButton.classList.add(cssClass);
+    newButton.title = title;
 
     return newButton;
 
