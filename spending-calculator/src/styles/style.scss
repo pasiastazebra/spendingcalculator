@@ -11,7 +11,7 @@
 }
 
 html {
-  background-color: $bgcolor;
+  background-color: var.$bgcolor;
   display: flex;
   justify-content: center;
 }
@@ -24,7 +24,7 @@ body {
   display: flex;
   justify-content: center;
 
-  background-color: $windowcolor;
+  background-color: var.$windowcolor;
 }
 
 .holder {
@@ -34,10 +34,10 @@ body {
 .active{
 
  &-button{
-  background-color: $color3;
+  background-color: var.$color3;
 
   &:hover {
-    background-color: $color2;
+    background-color: var.$color2;
   }
  }
 
@@ -55,11 +55,11 @@ body {
 }
 
 .odd {
-  background-color: $oddColor;
+  background-color: var.$oddColor;
 }
 
 .even {
-  background-color: $evenColor;
+  background-color: var.$evenColor;
 }
 
 #clearModal {
