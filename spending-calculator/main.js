@@ -70,7 +70,7 @@ currencyInput.addEventListener('input', () => {
 } );
 
 //* opening & closing modal
-showButton.addEventListener('click', () =>  modal.showModal() );
+showButton.addEventListener('click', () =>  {renderModalContent(); modal.showModal();} );
 
 closeButton.addEventListener('click', () => modal.close() );
 
@@ -186,6 +186,7 @@ const editEntry = (ID) => {
     showAlert('Empty fields or negative expanse', `Cannot edit entry ${ID}. Please fill all fields or check if the expanse is positive and try again.`);
     modal.close();
     alertButton.focus();
+
   } else if ( entryTitle.value == entries[entryIndex].title && entryAmmount.value == entries[entryIndex].ammount && entries[entryIndex].date == entryDate.value ) {
 
     showAlert('There are no changes', `Cannot edit entry ${ID}. Please enter any changes and try again.`);
@@ -206,7 +207,6 @@ const editEntry = (ID) => {
   modal.close();
   alertButton.focus();
 
-  renderModalContent();
   renderExpanses();
 
   }
