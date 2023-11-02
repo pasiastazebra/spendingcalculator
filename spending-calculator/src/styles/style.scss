@@ -469,6 +469,7 @@ body {
   
   background-color: $color3;
   color: $windowcolor;
+  box-shadow: 5px 5px 15px #000000;
 
   display: flex;
   justify-content: center;
@@ -492,7 +493,7 @@ body {
       &:hover {
 
         font-size:20px;
-        
+
       }
     }
     
