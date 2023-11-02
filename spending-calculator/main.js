@@ -262,7 +262,7 @@ const renderModalContent = (currencyString) => {
   }
 
   for (let i = 0; i < entries.length; i++) {
-    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i, entries[i].date, currencyString));
+    modalContent.appendChild(renderEntry(entries[i].ID, entries[i].title, parseFloat(entries[i].ammount), i, entries[i].date, currencyInput.value));
   }
 
 }
@@ -296,5 +296,5 @@ const showAlert = (title, message) => {
 
 }
 
-renderModalContent(currency);
+renderModalContent();
 renderExpanses();
