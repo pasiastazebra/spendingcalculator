@@ -2,30 +2,7 @@
 @use "alert.scss";
 @use "app.scss";
 @use "modal.scss";
-
-//* variables 
-$bgcolor: hsl(118, 92%, 86%);
-$windowcolor: #fafafa;
-$darkerwindowcolor: hsl(0, 0%, 68%);
-
-$color1: hsl(199, 81%, 36%);
-$color2: hsl(199, 81%, 56%);
-$color3: hsl(199, 51%, 36%);
-
-$color4: hsl(199, 81%, 26%);
-$color5: hsl(0, 0%, 88%);
-
-$oddColor: #dddddd;
-$evenColor: #f5f5f5;
-
-$closeButton: hsl(0, 63%, 61%);
-$closeButtonOnHover: hsl(0, 63%, 41%);
-
-$alertButton: hsl(130, 62%, 51%);
-$alertButtonOnHover: hsl(130, 62%, 31%);
-
-$rowheight: 20px;
-$rowwidth: 30px;
+@use "variables.scss" as var;
 
 * {
   z-index: 2;
