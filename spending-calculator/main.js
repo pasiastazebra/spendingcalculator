@@ -1,5 +1,7 @@
 import '/src/styles/style.scss';
 import { entryBuilder, iconBuilder, buttonBuilder, inputFieldBuilder, idBuilder, countExpanses, isFuture, currencyBuilder } from '/src/scripts/functions.js'
+import * as ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 
 //* elements consts
 
@@ -21,10 +23,34 @@ const alertDescription = document.querySelector('.alert-window-content-descripti
 const alertButton = document.querySelector('.alert-window-content-button');
 const alertOverlay = document.querySelector('.alert-overlay');
 const currencyInput = document.querySelector('.app-counter-currency');
+const generateExcelButton = document.getElementById('generate-sheet');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || []; // getting entries from local storage
+const convertedEntries = entries.map((row) => [row.ID, row.title, row.ammount, row.date]);
 
 dateInput.valueAsDate = new Date(); //creating current date as defalut state
+
+
+//* generating spreadsheet
+
+generateExcelButton.addEventListener('click', () => {
+  generateExcel(convertedEntries);
+  showAlert('Generating spreadsheet', 'Spreadsheet generated.');
+  alertButton.focus();
+});
+
+async function generateExcel(data) {
+  const workbook = new ExcelJS.Workbook();
+  const worksheet = workbook.addWorksheet('Sheet1');
+
+  worksheet.addRow(['ID', 'Title', 'Expanse', 'Date']);
+  data.forEach(row => {
+    worksheet.addRow(row);
+  });
+
+  const buffer = await workbook.xlsx.writeBuffer();
+  saveAs(new Blob([buffer]), 'expanses.xlsx');
+}
 
 
 //* currency things
