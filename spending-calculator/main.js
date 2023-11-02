@@ -26,7 +26,7 @@ const currencyInput = document.querySelector('.app-counter-currency');
 const generateExcelButton = document.getElementById('generate-sheet');
 
 const entries = JSON.parse(localStorage.getItem('entries')) || []; // getting entries from local storage
-const convertedEntries = entries.map((row) => [row.ID, row.title, row.ammount, row.date]);
+
 
 dateInput.valueAsDate = new Date(); //creating current date as defalut state
 
@@ -34,6 +34,10 @@ dateInput.valueAsDate = new Date(); //creating current date as defalut state
 //* generating spreadsheet
 
 generateExcelButton.addEventListener('click', () => {
+
+  const newestEntries = JSON.parse(localStorage.getItem('entries')) || []; // getting entries from local storage
+  const convertedEntries = newestEntries.map((row) => [row.ID, row.title, row.ammount, row.date]);
+
   generateExcel(convertedEntries);
   showAlert('Generating spreadsheet', 'Spreadsheet generated.');
   alertButton.focus();
