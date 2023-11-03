@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favico.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manjari&display=swap" rel="stylesheet">
+    <title>Spending calculator</title>
+    <script type="module" crossorigin src="/assets/index-fb891da0.js"></script>
+    <link rel="stylesheet" href="/assets/index-11b70852.css">
+  </head>
+  <body>
+    <!-- Dialog -->
+    <dialog class="modal" id="expansesModal">
+      <div class="modal-top">
+        <h1 class="modal-top-title">All expanses</h1>  
+        <button class="modal-top-button" id="closeModal">X</button>
+        <button id="clearModal">💀</button>
+      </div>
+      <div class="modal-content">
+        <div class="modal-content-label">
+          <p class="modal-content-label-id">ID</p>
+          <p class="modal-content-label-title">Title</p>
+          <p class="modal-content-label-expanse">Expanse</p>
+          <p class="modal-content-label-date">Date</p>
+          <button class="modal-content-label-button" id="generate-sheet" title="Download spreadsheet">
+            <img src="/icons/download.svg" alt="downloadicon" class="modal-content-label-button-icon">
+          </button>
+        </div>
+        <div class="modal-content-table">
+          <!-- User entries goes there -->
+        </div>
+      </div>
+    </dialog>
+    <!-- Custom alert -->
+
+    <div class="alert-window slideUp">
+      <div class="alert-window-top">
+        <h1 class="alert-window-top-title">
+          <!-- here goes alert title -->
+        </h1>
+      </div>
+      <div class="alert-window-content">
+        <article class="alert-window-content-description">
+          <!-- here goes alert description -->
+        </article>
+        <button class="alert-window-content-button">OK</button>
+      </div>
+    </div>
+
+    <div class="alert-overlay"></div>
+
+    <!-- App -->
+    <div class="app-window">
+      <h1 class="app-title">Spending calculator</h1>
+      <div class="app-content">
+        <div class="app-counter">
+          <p class="app-counter-text inline">You spent:</p> 
+          <p class="app-counter-text inline" id="totalExpanses">000,00</p>
+          <input type="text" class="app-counter-currency inline" maxlength="3">
+        </div>
+        <div class="app-content">
+          <div class="holder">
+            <div class="line">
+              <button class="app-content-button" id="showModal">View expanses</button>
+            </div>
+            <div class="line">
+              <button class="app-content-button" id="expanseSwitch">Add new expanse</button>
+            </div>
+            <div class="app-content-addingmenu">
+              <form class="app-content-addingmenu-hidden" id="expanseField">
+                <div class="line">
+                  <input type="text" class="app-content-addingmenu-input" id="titleInputField" placeholder="Title" required>
+                  <input type="number" class="app-content-addingmenu-input" id="expanseInputField" placeholder="Expanse" required>
+                  <input type="date" class="app-content-addingmenu-input" id="dateInputField" required>
+                </div>
+                <div class="line">
+                  <input type="submit" class="app-content-button" id="formAddButton" value="Add">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer font">
+      <p class="footer-text">Made with ❤️ by <a class="footer-text-link" href="https://github.com/pasiastazebra">Konrad</a></p>
+    </footer>
+    
+  </body>
+</html>
