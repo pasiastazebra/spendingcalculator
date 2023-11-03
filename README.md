@@ -2,7 +2,7 @@
 
 Simple spendings calculator made in vanilla JS. It uses local storage to store data and ExcelJS to export it to downloadable spreadsheet.
 
-#Live demo
+# Live demo
 https://pasiastazebra.github.io/spendingcalculator/
 
 # Technologies used
