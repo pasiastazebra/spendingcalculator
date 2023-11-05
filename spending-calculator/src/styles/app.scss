@@ -1,5 +1,19 @@
 @use "variables.scss" as var;
 
+@media screen and (max-width: 500px) {
+
+  .app-window {
+    width: 90vw !important;
+
+    height: 25vh !important;
+  }
+
+  .holder {
+    width: 80vw !important;
+  }
+ }
+
+
 .app{
     &-window {
        background-color: var.$windowcolor;
