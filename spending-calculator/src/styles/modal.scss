@@ -230,3 +230,9 @@
       }
     }
   }
+
+  @media screen and (max-width: 700px) {
+    .modal {
+      width: 80%;
+    }
+  }
